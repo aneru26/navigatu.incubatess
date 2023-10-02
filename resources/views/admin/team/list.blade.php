@@ -71,7 +71,6 @@
                       <th >Team Logo</th>
                       <th>Team Name</th>
                       <th>StartUp Name</th>
-                      <th>Documents</th>
                       <th>Created By</th>
                       <th >Created Date</th>
                       <th >Action</th>
@@ -86,22 +85,7 @@
                           @endif
                         </td>
                         <td>{{ $value->team_name}}</td>
-                        <td>{{ $value->startup_name}}</td>
-                        <td>
-    @if(!empty($value->getProfileDirect1()))
-        <select id="documentDropdown" onchange="viewDocument(this)">
-            <option value="">Select Document</option>
-            @foreach($value->getProfileDirect1() as $documentUrl)
-                @php
-                    $fileExtension = pathinfo($documentUrl, PATHINFO_EXTENSION);
-                @endphp
-                <option value="{{ $documentUrl }}">{{ strtoupper($fileExtension) }} Document</option>
-            @endforeach
-        </select>
-    @endif
-</td>
-
-                      
+                        <td>{{ $value->startup_name}}</td>      
                         <td>{{ $value->created_by_name}}</td>
                         <td>{{  date('m-d-Y  H:i A', strtotime($value->created_at)) }}</td>
                         <td style="min-width: 140px;">

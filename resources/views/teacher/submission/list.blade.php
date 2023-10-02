@@ -13,7 +13,7 @@
           </div>
 
           <div class="col-sm-6" style="text-align:right;">
-            <a href="{{ url('student/submission/add')}}" class="btn btn-primary">Add New Submission</a>
+           
           </div>
           
         </div>
@@ -36,16 +36,18 @@
                   <div class="row">
 
 
-                <div class="form-group col-md-3">
-                    <label >Document Type</label>
-                    <input type="text" class="form-control" value="{{ Request::get('document_type') }}" name="document_type"  placeholder="Document Type">
-                  </div>
+                
+                  <div class="form-group col-md-3">
+    <label>Created By</label>
+    <input type="text" class="form-control" value="{{ Request::get('created_by') }}" name="created_by" placeholder="Created By">
+</div>
+
 
 
                   <div class="form-group col-md-3">
                     
                   <button class="btn btn-primary" type="submit" style="margin-top: 31px;">Search </button>
-                  <a href="{{ url('student/submission/list') }}" class="btn btn-success" type="submit" style="margin-top: 31px;">Reset </a>
+                  <a href="{{ url('teacher/submission/list') }}" class="btn btn-success" type="submit" style="margin-top: 31px;">Reset </a>
                   </div>
 
                   </div>
@@ -64,14 +66,14 @@
               </div>
               <!-- /.card-header -->
               <div class="card-body p-0 table-responsive" style="overflow:auto; " >
-              <table id="example" class="table table-striped" style="width:100%">
+              <table class="table table-striped">
     <thead>
         <tr>
             <th>Document Type</th>
             <th>Other Links</th>
             <th>Documents</th>
             <th>Status</th>
-            
+            <th>Submitted By</th>
             <th>Submitted Date</th>
             <th>Status</th>
         </tr>
@@ -94,17 +96,18 @@
                     </select>
                 @endif
             </td>
-            <td>{{  ($value->status == 0) ? 'Pending' : 'Approved' }}
-            
-            <td>{{ date('m-d-Y ', strtotime($value->created_at)) }}</td>
+            <td>{{  ($value->status == 0) ? 'Pending' : 'Approved' }} </td>
+            <td>{{ $value->created_by_name }} {{ $value->last_name }}</td>
+            <td>{{ date('m-d-Y H:i A', strtotime($value->created_at)) }}</td>
             <td style="min-width: 140px;">
                 <div class="btn-group">
                     <button type="button" class="btn btn-primary btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Actions
                     </button>
                     <div class="dropdown-menu">
-                        <a class="dropdown-item" href="{{ url('student/submission/edit/'.$value->id) }}">Edit</a>
-                        <a class="dropdown-item" href="{{ url('student/submission/delete/'.$value->id) }}">Delete</a>
+                        
+                        <a class="dropdown-item" href="{{ url('admin/submission/edit/'.$value->id) }}">Edit</a>
+                        <a class="dropdown-item" href="{{ url('admin/submission/delete/'.$value->id) }}">Delete</a>
                     </div>
                 </div>
             </td>
@@ -137,7 +140,6 @@
         }
     }
 </script>
-
 
 
 @endsection

@@ -27,20 +27,21 @@ class TeamModel extends Model
     
     static public function getRecord()
     {
-
-        $return = TeamModel::select('team.*','users.name as created_by_name')
-                ->join('users','users.id','team.created_by');
-                if(!empty(Request::get('team_name')))
-                            {
-                                $return = $return->where('team.team_name','like', '%'.Request::get('team_name').'%'); 
-                            }
-                $return = $return->where('team.is_delete', '=', 0)
-               
-                ->orderBy('team.id','desc')
-                ->paginate(3);
-
+        $return = TeamModel::select('team.*', 'users.name as created_by_name')
+            ->join('users', 'users.id', '=', 'team.created_by')
+            ->where('team.is_delete', '=', 0);
+    
+        if (!empty(Request::get('team_name'))) {
+            $teamName = strtolower(Request::get('team_name')); // Convert search term to lowercase
+            $return = $return->whereRaw('LOWER(team.team_name) LIKE ?', ['%' . $teamName . '%']);
+        }
+    
+        $return = $return->orderBy('team.id', 'desc')
+            ->paginate(3);
+    
         return $return;
     }
+    
 
     public function getProfileDirect()
 {
@@ -111,10 +112,7 @@ public function users()
         return $this->hasMany(User::class);
     }
 
-    public function submission()
-    {
-        return $this->hasMany(SubmissionModel::class);
-    }
+   
 
 
 

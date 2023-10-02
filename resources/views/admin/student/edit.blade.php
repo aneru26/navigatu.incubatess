@@ -42,13 +42,13 @@
 
                   <div class="form-group col-md-6">
                     <label >Id Number <span style="color: red;">*</span> </label>
-                    <input type="text" class="form-control" value="{{ old ('id_number', $getRecord->id_number) }}" name="id_number" required placeholder="Id Number">
+                    <input type="text" class="form-control" value="{{ old ('id_number', $getRecord->id_number) }}" name="id_number"  placeholder="Id Number">
                     <div style="color:red">{{ $errors->first('id_number') }}</div>
                   </div>
 
                   <div class="form-group col-md-6">
                     <label >Program <span style="color: red;">*</span> </label>
-                    <select class="form-control" required name="program" >
+                    <select class="form-control"  name="program" >
                         <option value="">Select Program</option>
                         <option {{ (old('program', $getRecord->program) == 'BSIT') ? 'selected' : ''}} value="BSIT">BSIT</option>
                         <option {{ (old('program', $getRecord->program) == 'BSIS') ? 'selected' : ''}} value="BSIS">BSIS</option>
@@ -70,13 +70,13 @@
 
                   <div class="form-group col-md-6">
                     <label >Budget <span style="color: red;">*</span> </label>
-                    <input type="text" class="form-control" value="{{ old ('budget', $getRecord->budget) }}" name="budget" required placeholder="Budget">
+                    <input type="text" class="form-control" value="{{ old ('budget', $getRecord->budget) }}" name="budget" placeholder="Budget">
                     <div style="color:red">{{ $errors->first('budget') }}</div>
                   </div>
 
                   <div class="form-group col-md-6">
                     <label >Gender <span style="color: red;">*</span> </label>
-                    <select class="form-control" required name="gender" >
+                    <select class="form-control" name="gender" >
                         <option value="">Select Gender</option>
                         <option {{ (old('gender', $getRecord->gender) == 'Male') ? 'selected' : ''}} value="Male">Male</option>
                         <option {{ (old('gender', $getRecord->gender) == 'Female') ? 'selected' : ''}} value="Female">Female</option>
@@ -88,7 +88,7 @@
 
                   <div class="form-group col-md-6">
                     <label >Mentor <span style="color: red;">*</span> </label>
-                    <input type="text" class="form-control" value="{{ old ('mentor', $getRecord->mentor) }}" name="mentor" required placeholder="Mentor">
+                    <input type="text" class="form-control" value="{{ old ('mentor', $getRecord->mentor) }}" name="mentor" placeholder="Mentor">
                     <div style="color:red">{{ $errors->first('mentor') }}</div>
                   </div>
 

@@ -5,9 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{{ !empty ($header_title) ? $header_title : ''}} Navigatu</title>
   <link rel="icon" href="{{ asset('dist/img/navigatu.jpg') }}" type="image/x-icon">
-
+  
   <!-- Google Font: Source Sans Pro -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">  
   <!-- Font Awesome -->
   <link rel="stylesheet" href="{{ asset ('plugins/fontawesome-free/css/all.min.css') }}">
   <!-- Ionicons -->
@@ -26,6 +26,7 @@
   <link rel="stylesheet" href="{{ asset ('plugins/daterangepicker/daterangepicker.css') }}">
   <!-- summernote -->
   <link rel="stylesheet" href="{{ asset ('plugins/summernote/summernote-bs4.min.css') }}">
+  
   <style>
 
   .sidebar-dark-primary {
@@ -65,7 +66,7 @@
 <div class="wrapper">
 
     @include('layouts.header')
-    <div class="content-wrapper" style="margin-left: 0;">
+    <div class="content-wrapper " style="margin-left: 0;">
     @yield('content')
 
     </div>

@@ -31,11 +31,11 @@ class StudentController extends Controller
     public function insert(Request $request)
     {
         request()->validate([
-            'email' => 'required|email|unique:users',
+            'email' => 'required|unique:users',
             'id_number' => 'max:9',
             'team_id' => 'integer',
         ]);
-
+        
         $student = new User;
         $student->name = trim($request->name);
         $student->last_name = trim($request->last_name);
@@ -110,8 +110,8 @@ class StudentController extends Controller
     public function update($id, Request $request)
     {
         request()->validate([
-            'email' => 'required|email|unique:users,email,'.$id,
-            'id_number' => 'max:9|min:9'
+            'email' => 'required|unique:users,'.$id,
+            
 
             
         ]);

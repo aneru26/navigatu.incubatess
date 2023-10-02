@@ -36,16 +36,18 @@
                   <div class="row">
 
 
-                <div class="form-group col-md-3">
-                    <label >Team Name</label>
-                    <input type="text" class="form-control" value="{{ Request::get('team_name') }}" name="team_name"  placeholder="Team Name">
-                  </div>
+                
+                  <div class="form-group col-md-3">
+    <label>Created By</label>
+    <input type="text" class="form-control" value="{{ Request::get('created_by') }}" name="created_by" placeholder="Created By">
+</div>
+
 
 
                   <div class="form-group col-md-3">
                     
                   <button class="btn btn-primary" type="submit" style="margin-top: 31px;">Search </button>
-                  <a href="{{ url('admin/team/list') }}" class="btn btn-success" type="submit" style="margin-top: 31px;">Reset </a>
+                  <a href="{{ url('admin/submission/list') }}" class="btn btn-success" type="submit" style="margin-top: 31px;">Reset </a>
                   </div>
 
                   </div>
@@ -95,7 +97,7 @@
                 @endif
             </td>
             <td>{{  ($value->status == 0) ? 'Pending' : 'Approved' }} </td>
-            <td>{{ $value->created_by}}</td> 
+            <td>{{ $value->created_by_name }} {{ $value->last_name }}</td>
             <td>{{ date('m-d-Y H:i A', strtotime($value->created_at)) }}</td>
             <td style="min-width: 140px;">
                 <div class="btn-group">

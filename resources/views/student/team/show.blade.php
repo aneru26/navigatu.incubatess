@@ -24,7 +24,7 @@
                                         <a href="{{ url('student/team/edit')}}" >
 
                                             <p>
-                                                <i class="nav-icon far fa-user"></i>  Edit My StartUp
+                                                <i class="nav-icon far fa-user"></i>  Edit My Team
                                             </p>
                                         </a>
                                     </div>
@@ -99,8 +99,8 @@
           <div class="col-md-12">
 
             <!-- Profile Image -->
-            <div class="card card-primary card-outline ">
-              <div>  <a href="{{ url('student/team/edit')}}" class="float-right "><i>Edit My Startup</i></a></div>
+            <div class="card  card-outline ">
+              <div>  <a href="{{ url('student/team/edit')}}" class="float-right py-3 px-4"><i>Edit My Team</i></a></div>
               <div class="card-body box-profile">
                
                 <div class="text-center">

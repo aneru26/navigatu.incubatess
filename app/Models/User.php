@@ -65,53 +65,60 @@ class User extends Authenticatable
     static public function getAdmin()
     {
         $return = self::select('users.*')
-                            ->where('user_type','=',3)
-                            ->where('is_delete','=',0);
-                            if(!empty(Request::get('name')))
-                            {
-                                $return = $return->where('name','like', '%'.Request::get('name').'%'); 
-                            }
-                            if(!empty(Request::get('email')))
-                            {
-                                $return = $return->where('email','like','%'.Request::get('email').'%'); 
-                            }
-                            if(!empty(Request::get('date')))
-                            {
-                                $return = $return->whereDate('created_at','=',Request::get('date')); 
-                            }
-        $return = $return->orderBy('id','desc')
-                            ->paginate(5);
-        
+            ->where('user_type', '=', 3)
+            ->where('is_delete', '=', 0);
+    
+        if (!empty(Request::get('name'))) {
+            $name = strtolower(Request::get('name')); // Convert search term to lowercase
+            $return = $return->whereRaw('LOWER(name) LIKE ?', ['%' . $name . '%']);
+        }
+    
+        if (!empty(Request::get('email'))) {
+            $email = strtolower(Request::get('email')); // Convert search term to lowercase
+            $return = $return->whereRaw('LOWER(email) LIKE ?', ['%' . $email . '%']);
+        }
+    
+        if (!empty(Request::get('date'))) {
+            $return = $return->whereDate('created_at', '=', Request::get('date'));
+        }
+    
+        $return = $return->orderBy('id', 'desc')
+            ->paginate(5);
+    
         return $return;
     }
-
     static public function getStudent()
     {
-        $return = self::select('users.*','team.team_name as team_name')
-                            ->join('team', 'team.id','=','users.team_id','left')
-                            ->where('users.user_type','=',2)
-                            ->where('users.is_delete','=',0);
-                            if(!empty(Request::get('name')))
-                            {
-                                $return = $return->where('users.name','like', '%'.Request::get('name').'%'); 
-                            }
-                            if(!empty(Request::get('email')))
-                            {
-                                $return = $return->where('users.email','like','%'.Request::get('email').'%'); 
-                            }
-                            if(!empty(Request::get('team')))
-                            {
-                                $return = $return->where('team.team_name','like','%'.Request::get('team').'%'); 
-                            }
-                            if(!empty(Request::get('date')))
-                            {
-                                $return = $return->whereDate('users.created_at','=',Request::get('date')); 
-                            }
-        $return = $return->orderBy('users.id','desc')
-                            ->paginate(5);
-        
+        $return = self::select('users.*', 'team.team_name as team_name')
+            ->join('team', 'team.id', '=', 'users.team_id', 'left')
+            ->where('users.user_type', '=', 2)
+            ->where('users.is_delete', '=', 0);
+    
+        if (!empty(Request::get('name'))) {
+            $name = strtolower(Request::get('name')); // Convert search term to lowercase
+            $return = $return->whereRaw('LOWER(users.name) LIKE ?', ['%' . $name . '%']);
+        }
+    
+        if (!empty(Request::get('email'))) {
+            $email = strtolower(Request::get('email')); // Convert search term to lowercase
+            $return = $return->whereRaw('LOWER(users.email) LIKE ?', ['%' . $email . '%']);
+        }
+    
+        if (!empty(Request::get('team'))) {
+            $team = strtolower(Request::get('team')); // Convert search term to lowercase
+            $return = $return->whereRaw('LOWER(team.team_name) LIKE ?', ['%' . $team . '%']);
+        }
+    
+        if (!empty(Request::get('date'))) {
+            $return = $return->whereDate('users.created_at', '=', Request::get('date'));
+        }
+    
+        $return = $return->orderBy('users.id', 'desc')
+            ->paginate(5);
+    
         return $return;
     }
+    
 
     static public function getEmailSingle($email)
     {
@@ -208,6 +215,6 @@ public function countSubmittedDocuments()
 
 public function submissions()
 {
-    return $this->hasMany(SubmissionModel::class);
+    return $this->hasMany(SubmissionModel::class,);
 }
 }

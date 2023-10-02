@@ -148,9 +148,9 @@
   <div class="card-body">
     <div class="row">
       <div class="col-12 col-md-12 col-lg-8 order-2 order-md-1">
-      <h3 class="text-primary"><i ></i> Grants</h3>
+      <h1 class="text-primary text-center border my-5"><i ></i> Grants</h1>
       @foreach($getRecord as $value)
-        <div class="row">
+        <div class="row border mt-3">
           <div class="col-12">
           
 
@@ -199,7 +199,7 @@
       
    
       <div class="col-12 col-md-12 col-lg-4 order-1 order-md-2">
-        <h3 class="text-primary"><i></i> Due Date</h3>
+        <h3 class="text-primary border my-5"><i></i> Due Date</h3>
         <p class="text-muted">Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terr.</p>
         <br>
         <div class="text-muted">

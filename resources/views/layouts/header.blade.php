@@ -3,6 +3,7 @@
 
   <!-- Navbar -->
 <nav class="main-header navbar navbar-expand-lg navbar-white navbar-light ">
+  
     <a href="#" class="brand-link">
         <img src="{{ asset('dist/img/navigatu.jpg') }}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
         <span class="brand-text font-weight-light">Navigatu</span>
@@ -20,7 +21,7 @@
 
              
          @if(Auth::user()->user_type == 1)
- 
+ <div class="container">
 <li class="nav-item">
  
    <a href="{{ url('admin/dashboard')}}" class="nav-link @if(Request::segment(2) == 'dashboard')active @endif">
@@ -39,21 +40,20 @@
      </p>
    </a>
  </li>
+ <li class="nav-item">
+   <a href="{{ url('admin/team/list')}}" class="nav-link @if(Request::segment(2) == 'team')active @endif">
+    
+     <p>
+       Teams
+     </p>
+   </a>
+ </li>
 
  <li class="nav-item">
    <a href="{{ url('admin/student/list')}}" class="nav-link @if(Request::segment(2) == 'student')active @endif">
      
      <p>
      Incubatees
-     </p>
-   </a>
- </li>
-
- <li class="nav-item">
-   <a href="{{ url('admin/team/list')}}" class="nav-link @if(Request::segment(2) == 'team')active @endif">
-    
-     <p>
-       Teams
      </p>
    </a>
  </li>
@@ -102,16 +102,6 @@
    </a>
  </li>
 
-
- <li class="nav-item">
-   <a href="{{ url('teacher/student/list')}}" class="nav-link @if(Request::segment(2) == 'student')active @endif">
-     
-     <p>
-       Student
-     </p>
-   </a>
- </li>
-
  <li class="nav-item">
    <a href="{{ url('teacher/team/list')}}" class="nav-link @if(Request::segment(2) == 'team')active @endif">
     
@@ -123,10 +113,40 @@
 
 
  <li class="nav-item">
+   <a href="{{ url('teacher/student/list')}}" class="nav-link @if(Request::segment(2) == 'student')active @endif">
+     
+     <p>
+     Incubatees
+     </p>
+   </a>
+ </li>
+
+ <li class="nav-item">
+   <a href="{{ url('teacher/submission/list')}}" class="nav-link @if(Request::segment(2) == 'submission')active @endif">
+    
+     <p>
+      Submission
+     </p>
+   </a>
+ </li>
+
+ 
+
+
+ <li class="nav-item">
    <a href="{{ url('teacher/competitions/list')}}" class="nav-link @if(Request::segment(2) == 'competitions')active @endif">
     
      <p>
        Competitions
+     </p>
+   </a>
+ </li>
+
+ <li class="nav-item">
+   <a href="{{ url('teacher/grants/list')}}" class="nav-link @if(Request::segment(2) == 'grants')active @endif">
+    
+     <p>
+       Grants
      </p>
    </a>
  </li>
@@ -190,7 +210,7 @@
 
        @endif  
        </ul>
-
+       </div>
         <ul class="navbar-nav ml-auto">
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="userDropdown"  role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

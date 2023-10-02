@@ -43,15 +43,11 @@
 
                   <div class="form-group col-md-">
                     <label >StartUp Name <span style="color: red;">*</span></label>
-                    <input type="text" class="form-control" value="{{ old ('startup_name') }}" name="startup_name" required placeholder="StartUp Name">
+                    <input type="text" class="form-control" value="{{ old ('startup_name') }}" name="startup_name"  placeholder="StartUp Name">
                     <div style="color:red">{{ $errors->first('startup_name') }}</div>
                   </div>
 
-                  <div class="form-group col-md-">
-                    <label >Team Document <span style="color: red;">*</span> </label>
-                    <input type="file" class="form-control" name="team_documents[]" multiple>
-                    <div style="color:red">{{ $errors->first('team_document') }}</div>
-                  </div>
+               
 
                 </div>
                 <!-- /.card-body -->

@@ -16,14 +16,13 @@ class CompetitionsModel extends Model
         return self::find($id); 
     }
     
-    static public function getCompetition()
+    static public function getCompetition($perPage = 5)
     {
         $return = self::select('competition.*')
-                    ->where('is_delete','=',0); 
-                         
-        $return = $return->orderBy('id','desc')
-                            ->paginate(5);
-        
+            ->where('is_delete', '=', 0)
+            ->orderBy('id', 'desc')
+            ->paginate($perPage);
+    
         return $return;
     }
 

@@ -13,7 +13,7 @@
           </div>
 
           <div class="col-sm-6" style="text-align:right;">
-            <a href="{{ url('admin/grants/add')}}" class="btn btn-primary">Add New Competition</a>
+            <a href="{{ url('admin/grants/add')}}" class="btn btn-primary">Add New Grants</a>
           </div>
           
         </div>
@@ -36,11 +36,11 @@
                   <div class="row">
 
 
-                <div class="form-group col-md-2">
-                    <label >Name</label>
-                    <input type="text" class="form-control" value="{{ Request::get('name') }}" name="name"  placeholder="Name">
+                <div class="form-group col-md-3">
+                    <label >Grants Name</label>
+                    <input type="text" class="form-control" value="{{ Request::get('grants_name') }}" name="grants_name"  placeholder="Grants Name">
                   </div>
-                  <div class="form-group col-md-2">
+                  <!-- <div class="form-group col-md-2">
                     <label>Email</label>
                     <input type="text" class="form-control" name="email" value="{{ Request::get('email') }}" placeholder="Email">
                   </div>
@@ -53,7 +53,7 @@
                   <div class="form-group col-md-2 ">
                     <label>Date</label>
                     <input type="date" class="form-control" name="date" value="{{ Request::get('date') }}" placeholder="Email">
-                  </div>
+                  </div> -->
 
                   <div class="form-group col-md-3">
                     

@@ -91,7 +91,7 @@ class UserController extends Controller
         $id = Auth::user()->id;
         
         request()->validate([
-            'email' => 'required|email|unique:users,email,'.$id
+            'email' => 'required|unique:users,email,'.$id
         ]);
 
         $student = User::getSingle($id);

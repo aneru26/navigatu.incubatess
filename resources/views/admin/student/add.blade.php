@@ -30,24 +30,24 @@
                 <div class="row">
                 <div class="form-group col-md-6">
                     <label >First Name <span style="color: red;">*</span></label>
-                    <input type="text" class="form-control" value="{{ old ('name') }}" name="name" required placeholder="First Name">
+                    <input type="text" class="form-control" required value="{{ old ('name') }}" name="name" required placeholder="First Name">
                     <div style="color:red">{{ $errors->first('name') }}</div>
                   </div>
 
                   <div class="form-group col-md-6">
                     <label >Last Name <span style="color: red;">*</span> </label>
-                    <input type="text" class="form-control" value="{{ old ('last_name') }}" name="last_name" required placeholder="Last Name">
+                    <input type="text" class="form-control" required value="{{ old ('last_name') }}" name="last_name" required placeholder="Last Name">
                     <div style="color:red">{{ $errors->first('last_name') }}</div>
                   </div>
 
                   <div class="form-group col-md-6">
-                    <label >Id Number <span style="color: red;">*</span> </label>
+                    <label >Id Number  </label>
                     <input type="text" class="form-control" value="{{ old ('id_number') }}" name="id_number"  placeholder="Id Number">
                     <div style="color:red">{{ $errors->first('id_number') }}</div>
                   </div>
 
                   <div class="form-group col-md-6">
-                    <label >Program <span style="color: red;">*</span> </label>
+                    <label >Program  </label>
                     <select class="form-control"  name="program" >
                         <option value="">Select Program</option>
                         <option value="BSIT">BSIT</option>
@@ -59,7 +59,7 @@
 
                   <div class="form-group col-md-6">
                     <label >Team <span style="color: red;">*</span> </label>
-                    <select class="form-control"  name="team_id" >
+                    <select class="form-control"  name="team_id" required >
                         <option value="">Select Team</option>
                         @foreach($getClass as $value)
                         <option {{( old('team_id') == $value->id) ? 'selected' : ''}} value="{{ $value->id }}">{{ $value->team_name }}</option>
@@ -72,13 +72,13 @@
 
 
                   <div class="form-group col-md-6">
-                    <label >Budget <span style="color: red;">*</span> </label>
+                    <label >Budget  </label>
                     <input type="text" class="form-control" value="{{ old ('budget') }}" name="budget" placeholder="Budget">
                     <div style="color:red">{{ $errors->first('budget') }}</div>
                   </div>
 
                   <div class="form-group col-md-6">
-                    <label >Gender <span style="color: red;">*</span> </label>
+                    <label >Gender  </label>
                     <select class="form-control"  name="gender" >
                         <option value="">Select Gender</option>
                         <option {{ (old('gender') == 'Male') ? 'selected' : ''}} value="Male">Male</option>
@@ -90,7 +90,7 @@
                   </div>
 
                   <div class="form-group col-md-6">
-                    <label >Mentor <span style="color: red;">*</span> </label>
+                    <label >Mentor  </label>
                     <input type="text" class="form-control" value="{{ old ('mentor') }}" name="mentor"  placeholder="Mentor">
                     <div style="color:red">{{ $errors->first('mentor') }}</div>
                   </div>
@@ -98,13 +98,13 @@
             
 
                   <div class="form-group col-md-6">
-                    <label >Pofile Pic <span style="color: red;">*</span> </label>
+                    <label >Pofile Pic  </label>
                     <input type="file" class="form-control" name="profile_pic">
                     <div style="color:red">{{ $errors->first('profile_pic') }}</div>
                   </div>
 
                   <div class="form-group col-md-6">
-                    <label >Status <span style="color: red;">*</span> </label>
+                    <label >Status  </label>
                     <select class="form-control" required name="status" >
                         <option value="">Select Status</option>
                         <option {{ old('status') == 0 ? 'selected' : '' }} value="0">Active</option>
@@ -118,16 +118,22 @@
                 </div>
                 
                   <div class="form-group">
-                    <label>Email <span style="color: red;">*</span></label>
-                    <input type="email" class="form-control" name="email" value="{{ old ('email') }}" required placeholder="Email">
+                    <label>Username <span style="color: red;">*</span></label>
+                    <input type="text" class="form-control" name="email" required value="{{ old ('email') }}" required placeholder="Username">
                     <div style="color:red" >{{ $errors->first('email')}}</div>
                   </div>
                   <div class="form-group">
-                    <label>Password <span style="color: red;">*</span></label>
-                    <input type="password" class="form-control" name="password" required placeholder="Password">
-                  </div>
-                
-                </div>
+    <label>Password <span style="color: red;">*</span></label>
+    <input type="password" class="form-control" name="password" required placeholder="Password" id="passwordField">
+</div>
+
+<div class="form-group">
+    <input type="text" class="form-control" id="generatedPasswordField" readonly>
+</div>
+
+<!-- Add this button to generate a random password -->
+<button type="button" class="btn btn-primary" id="generatePasswordButton">Generate Random Password</button>
+
                 <!-- /.card-body -->
 
                 <div class="card-footer">
@@ -144,6 +150,28 @@
     </section>
   
   </div>
+
+  <script>
+    // Function to generate a random password
+    function generateRandomPassword(length) {
+        const charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+        let password = "";
+        for (let i = 0; i < length; i++) {
+            const randomIndex = Math.floor(Math.random() * charset.length);
+            password += charset.charAt(randomIndex);
+        }
+        return password;
+    }
+
+    // Attach a click event handler to the "Generate Random Password" button
+    document.getElementById('generatePasswordButton').addEventListener('click', function () {
+        const passwordField = document.getElementById('passwordField');
+        const generatedPasswordField = document.getElementById('generatedPasswordField');
+        const randomPassword = generateRandomPassword(8); // Change the length as needed
+        passwordField.value = randomPassword;
+        generatedPasswordField.value = randomPassword;
+    });
+</script>
 
 
 @endsection

@@ -71,7 +71,7 @@
       <form action="{{ url('login') }}" method="post">
         {{ csrf_field() }}
         <div class="input-group mb-3">
-          <input type="email" class="form-control" required name="email" placeholder="Email">
+          <input type="text" class="form-control" required name="email" placeholder="Username">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-envelope"></span>
@@ -95,9 +95,9 @@
                 Remember Me
               </label>
             </div>
-         <p class="mb-0">
+         <!-- <p class="mb-0">
         <a href="{{ url('register')}}" class="text-center">Register a new membership</a>
-      </p> 
+      </p>  -->
           </div>
           <!-- /.col -->
           <div class="col-4">

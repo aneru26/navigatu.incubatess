@@ -9,16 +9,57 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str; 
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Carbon;
 
 class CompetitionsController extends Controller
 {
 
     
-    public function list()
+    public function index()
 {
-    $data['getRecord'] = CompetitionsModel::getCompetition();
-    $data['header_title'] = "Competition List";
-    
+    // Get all competition records
+    $competitions = CompetitionsModel::getCompetition();
+
+    // Filter competitions to get only the upcoming deadlines
+    $upcomingCompetitions = $competitions->filter(function ($competition) {
+        return Carbon::now()->lessThan($competition->deadline);
+    });
+
+    $data['getRecord'] = $upcomingCompetitions;
+    $data['header_title'] = "Upcoming Competitions";
+
+    // Assuming 'student.competitions.list' is the view for students
+    return view(request()->is('admin/*') ? 'admin.competitions.list' : (request()->is('student/*') ? 'student.competitions.list' : 'teacher.competitions.list'), $data);
+}
+
+
+
+public function list()
+{
+    // Get all competition records
+    $competitions = CompetitionsModel::getCompetition();
+
+    // Get the current date
+    $currentDate = Carbon::now();
+
+    // Separate upcoming and missed deadlines
+    $upcomingCompetitions = [];
+    $missedDeadlines = [];
+
+    foreach ($competitions as $competition) {
+        if ($currentDate->lessThan($competition->deadline)) {
+            $upcomingCompetitions[] = $competition;
+        } else {
+            $missedDeadlines[] = $competition;
+        }
+    }
+
+    // Pass both upcoming and missed deadlines to the view
+    $data['getRecord'] = $competitions;
+    $data['upcomingDeadlines'] = $upcomingCompetitions;
+    $data['missedDeadlines'] = $missedDeadlines;
+    $data['header_title'] = "Competitions List";
+
     // Assuming 'student.competitions.list' is the view for students
     return view(request()->is('admin/*') ? 'admin.competitions.list' : (request()->is('student/*') ? 'student.competitions.list' : 'teacher.competitions.list'), $data);
 }

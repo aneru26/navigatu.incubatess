@@ -167,6 +167,28 @@ Route::group(['middleware' => 'teacher'], function (){
      Route::post('teacher/competitions/edit/{id}',[CompetitionsController::class,'update'] );
      Route::get('teacher/competitions/delete/{id}',[CompetitionsController::class, 'delete'] );
 
+
+     
+     //Grants
+
+     Route::get('teacher/grants/list',[CompetitionsController::class,'list'] );
+     Route::get('teacher/grants/add',[CompetitionsController::class,'add'] );
+     Route::post('teacher/grants/add',[CompetitionsController::class,'insert'] );
+     Route::get('teacher/grants/show/{id}',[CompetitionsController::class,'show'] );
+     Route::get('teacher/grants/edit/{id}',[CompetitionsController::class,'edit'] );
+     Route::post('teacher/grants/edit/{id}',[CompetitionsController::class,'update'] );
+     Route::get('teacher/grants/delete/{id}',[CompetitionsController::class, 'delete'] );
+
+       //Submission
+
+    Route::get('teacher/submission/list',[SubmissionController::class,'list'] );
+    Route::get('teacher/submission/add',[SubmissionController::class,'add'] );
+    Route::post('teacher/submission/add',[SubmissionController::class,'insert'] );
+    Route::get('teacher/submission/show/{id}',[SubmissionController::class,'show'] );
+    Route::get('teacher/submission/edit/{id}',[SubmissionController::class,'edit'] );
+    Route::post('teacher/submission/edit/{id}',[SubmissionController::class,'update'] );
+    Route::get('teacher/submission/delete/{id}',[SubmissionController::class, 'delete'] );
+
 });
 
 Route::group(['middleware' => 'student'], function (){
@@ -193,6 +215,9 @@ Route::group(['middleware' => 'student'], function (){
      //Competitions
 
      Route::get('student/competitions/list',[CompetitionsController::class,'list'] );
+     
+     
+
 
      //Grants
 

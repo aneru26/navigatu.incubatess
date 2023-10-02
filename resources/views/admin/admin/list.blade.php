@@ -38,10 +38,10 @@
 
 
                 <div class="form-group col-md-3">
-                    <label >Name</label>
-                    <input type="text" class="form-control" value="{{ Request::get('name') }}" name="name"  placeholder="Name">
+                    <label >Admin Name</label>
+                    <input type="text" class="form-control" value="{{ Request::get('name') }}" name="name"  placeholder="Admin Name">
                   </div>
-                  <div class="form-group col-md-3">
+                  <!-- <div class="form-group col-md-3">
                     <label>Email</label>
                     <input type="text" class="form-control" name="email" value="{{ Request::get('email') }}" placeholder="Email">
                   </div>
@@ -49,7 +49,7 @@
                   <div class="form-group col-md-3">
                     <label>Date</label>
                     <input type="date" class="form-control" name="date" value="{{ Request::get('date') }}" placeholder="Email">
-                  </div>
+                  </div> -->
 
                   <div class="form-group col-md-3">
                     
