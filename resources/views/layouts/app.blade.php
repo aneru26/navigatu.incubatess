@@ -26,12 +26,11 @@
   <link rel="stylesheet" href="{{ asset ('plugins/daterangepicker/daterangepicker.css') }}">
   <!-- summernote -->
   <link rel="stylesheet" href="{{ asset ('plugins/summernote/summernote-bs4.min.css') }}">
+  <link href="https://cdn.datatables.net/v/bs5/dt-1.13.6/datatables.min.css" rel="stylesheet">
   
   <style>
 
-  .sidebar-dark-primary {
-    background-color: #002855;
-  }
+  
 
   .document-container {
     overflow-x: auto;
@@ -57,6 +56,8 @@
 
   /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   background: linear-gradient(to right bottom, rgba(135, 206, 235, 1), rgba(173, 216, 230, 1));
+
+  
 }
 
 </style>
@@ -105,6 +106,7 @@
 <script src="{{ asset ('plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js') }}"></script>
 <!-- AdminLTE App -->
 <script src="{{ asset ('dist/js/adminlte.js') }}"></script>
+<script src="https://cdn.datatables.net/v/bs5/dt-1.13.6/datatables.min.js"></script>
 
 
   

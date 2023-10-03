@@ -52,25 +52,6 @@
               </div>
 
 
-                  <div class="form-group col-md-">
-
-    <label>Team Document</label>
-
-    <br>
-
-    @if(!empty($getRecord->team_document))
-
-        @foreach ($getRecord->getProfileDirect1() as $documentUrl)
-            <a href="{{ $documentUrl }}" target="_blank">View Document</a>
-            <br>
-            @if (in_array(pathinfo($documentUrl, PATHINFO_EXTENSION), ['pdf', 'docx', 'xlsx']))
-                <iframe src="{{ $documentUrl }}" style="width: 100%; height: 500px;"></iframe>
-            @endif
-        @endforeach
-
-    @endif
-
-</div>
 
 
                 </div>

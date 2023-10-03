@@ -43,9 +43,6 @@
                     <div style="color:red">{{ $errors->first('team_name') }}</div>
                   </div>
                   
-
-                  
-
                 </div>
 
                 <br>

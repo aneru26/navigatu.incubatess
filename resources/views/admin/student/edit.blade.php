@@ -119,7 +119,7 @@
                 
                   <div class="form-group col-md-12">
                     <label>Email <span style="color: red;">*</span></label>
-                    <input type="email" class="form-control" name="email" value="{{ old ('email',$getRecord->email) }}" required placeholder="Email">
+                    <input type="text" class="form-control" name="email" value="{{ old ('email',$getRecord->email) }}" required placeholder="Email">
                    
                   </div>
                   <div class="form-group">

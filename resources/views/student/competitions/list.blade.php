@@ -148,9 +148,9 @@
   <div class="card-body">
     <div class="row">
       <div class="col-12 col-md-12 col-lg-8 order-2 order-md-1">
-      <h1 class="text-primary text-center border border-black my-5"><i ></i> Competitions</h1>
+      <h1 class="text-primary text-center border border-black my-3 shadow-lg p-3  bg-white rounded"><i ></i> Competitions</h1>
       @foreach($getRecord as $value)
-        <div class="row border border-black mt-3">
+        <div class="row border border-black mt-2 shadow-lg p-3 mb-4 bg-white rounded">
           <div class="col-12">
           
 
@@ -203,16 +203,16 @@
       
    
       <div class="col-12 col-md-12 col-lg-4 order-1 order-md-2 text-center">
-        <h3 class="text-primary text border border-black my-5"><i></i> Upcoming Deadline</h3>
+        <h3 class="text-primary text border border-black my-3 shadow-lg p-3 mb-5 bg-white rounded"><i></i> Upcoming Deadline</h3>
         @foreach($upcomingDeadlines as $deadline)
                             <p class="text-muted">{{ $deadline->competition_name }} - Deadline: {{ $deadline->deadline }}</p>
           @endforeach
         <br>
         
 
-        <h3 class="text-primary border border-black" ><i></i> Missed Deadline</h3>
+        <h3 class="text-primary border border-black shadow-lg p-3 mb-4 bg-white rounded" ><i></i> Missed Deadline</h3>
         @foreach($missedDeadlines as $deadline)
-            <p class="text-muted  my-5">{{ $deadline->competition_name }} - Deadline: {{ $deadline->deadline }}</p>
+            <p class="text-muted  shadow-sm p-3  bg-white rounded w-50 text-center mx-auto d-inline-block">{{ $deadline->competition_name }} <br> Deadline: {{ $deadline->deadline }}</p>
         @endforeach
         <div class="text-center mt-5 mb-3">
           <a href="{{ url('student/submission/add') }}" class="btn btn-sm btn-primary">Add files</a>

@@ -45,17 +45,17 @@
                     </select>
 
             
-
+<!-- 
                   <div class="form-group col-md-">
                     <label >Links <span style="color: red;">*</span></label>
                     <input type="text" class="form-control" value="{{ $getRecord->links }}" name="links"  placeholder="Links">
                     <div style="color:red">{{ $errors->first('links') }}</div>
-                  </div>
+                  </div> -->
 
-                  <div class="form-group col-md-">
+                  <!-- <div class="form-group col-md-">
     <label>Team Documents <span style="color: red;">*</span> </label>
     <input type="file" class="form-control" multiple value="{{ $getRecord->team_documents }}" name="team_documents[]" multiple>
-    <div style="color:red">{{ $errors->first('team_documents') }}</div>
+    <div style="color:red">{{ $errors->first('team_documents') }}</div> -->
     
 </div>
 

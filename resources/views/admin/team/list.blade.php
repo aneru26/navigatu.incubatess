@@ -13,7 +13,7 @@
           </div>
 
           <div class="col-sm-6" style="text-align:right;">
-            <a href="{{ url('admin/team/add')}}" class="btn btn-primary">Add New Team</a>
+            <a href="{{ url('admin/team/add')}}" class="btn btn-outline-primary">Add New Team</a>
           </div>
           
         </div>
@@ -36,16 +36,16 @@
                   <div class="row">
 
 
-                <div class="form-group col-md-3">
-                    <label >Team Name</label>
-                    <input type="text" class="form-control" value="{{ Request::get('team_name') }}" name="team_name"  placeholder="Team Name">
+                <div class="form-group col-md-2">
+                    
+                    <input type="text" class="form-control form-control-sm" value="{{ Request::get('team_name') }}" name="team_name"  placeholder="Team Name">
                   </div>
 
 
                   <div class="form-group col-md-3">
                     
-                  <button class="btn btn-primary" type="submit" style="margin-top: 31px;">Search </button>
-                  <a href="{{ url('admin/team/list') }}" class="btn btn-success" type="submit" style="margin-top: 31px;">Reset </a>
+                  <button class="btn btn-outline-primary btn-sm" type="submit">Search </button>
+                  <a href="{{ url('admin/team/list') }}" class="btn btn-outline-success btn-sm" type="submit">Reset </a>
                   </div>
 
                   </div>

@@ -71,9 +71,9 @@
             <!-- small box -->
             <div class="small-box bg-danger">
               <div class="inner">
-                <h3>65</h3>
+                <h3>{{ $TotalSubmission}}</h3>
 
-                <p>Files Send</p>
+                <p>Total Submission</p>
               </div>
               <div class="icon">
                 <i class="ion ion-pie-graph"></i>

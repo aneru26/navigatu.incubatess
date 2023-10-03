@@ -100,10 +100,14 @@
 
             <!-- Profile Image -->
             <div class="card  card-outline ">
-              <div>  <a href="{{ url('student/team/edit')}}" class="float-right py-3 px-4"><i>Edit My Team</i></a></div>
-              <div class="card-body box-profile">
+            <div>
+                            <a href="{{ url('student/team/edit') }}" class="float-right btn btn-sm btn-primary rounded-pill my-3 mx-3">
+                                <i class="fas fa-pencil-alt"></i> Edit My Team
+                            </a>
+                        </div>
+              <div class="card-body box-profile shadow-lg p-3  bg-white rounded">
                
-                <div class="text-center">
+                <div class="text-center ">
                 @if(!empty($team->getProfilePictureUrl()))
                                     <img src="{{ $team->getProfilePictureUrl() }}" class="rounded-circle" style="width: 100px; height: 100px;">
                                     @endif
@@ -113,15 +117,15 @@
 
                 <p class="text-muted text-center">{{ strtoupper($team->startup_name) }}</p>
 
-                <ul class="list-group list-group-unbordered mb-3">
+                <ul class="list-group list-group-unbordered mb-3 ">
                   <li class="list-group-item">
-                    <b>Member 1:</b> <a class="float-right">1,322</a>
+                    <b>Member 1:</b> <a class="float-right">{{ strtoupper($team->member_1) }}</a>
                   </li>
                   <li class="list-group-item">
-                    <b>Member 2:</b> <a class="float-right">543</a>
+                    <b>Member 2:</b> <a class="float-right">{{ strtoupper($team->member_2) }}</a>
                   </li>
                   <li class="list-group-item">
-                    <b>Member 3:</b> <a class="float-right">13,287</a>
+                    <b>Member 3:</b> <a class="float-right">{{ strtoupper($team->member_3) }}</a>
                   </li>
                 </ul>
 

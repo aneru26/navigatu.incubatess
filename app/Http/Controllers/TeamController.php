@@ -44,27 +44,14 @@ class TeamController extends Controller
     
     $save->team_name = $request->team_name;
     $save->startup_name = $request->startup_name;
-    $save->document_type = $request->document_type;
-    $save->links = $request->links;
-    
+    $save->member_1 = $request->member_1;
+    $save->member_2 = $request->member_2;
+    $save->member_3 = $request->member_3;
     if ($request->hasFile('team_logo') && $request->file('team_logo')->isValid()) 
     {
         // ... (your existing code for handling team_logo)
     }
 
-    if ($request->hasFile('team_documents')) {
-        $teamDocuments = $request->file('team_documents');
-        $documentFilenames = [];
-
-        foreach ($teamDocuments as $document) {
-            if ($document->isValid()) {
-                $documentFilename = $this->storeFile($document, 'upload/document');
-                $documentFilenames[] = $documentFilename;
-            }
-        }
-
-        $save->team_document = json_encode($documentFilenames);
-    }
     $save->is_delete = 0;
     $save->created_by = Auth::user()->id;
     $save->save();
@@ -139,27 +126,10 @@ public function show($id)
             $save->team_logo = $filename;
         }
         $save->team_name =  $request->team_name;
-        $save->document_type =  $request->document_type;
-        $save->links =  $request->links;
         $save->startup_name =  $request->startup_name;
-        if (!empty($request->file('team_documents'))) {
-            if (!empty($save->getProfile)) {
-                foreach ($save->team_document as $document) {
-                    unlink('upload/document/' . $document);
-                }
-            }
-            $teamDocuments = $request->file('team_documents');
-            $documentFilenames = [];
-    
-            foreach ($teamDocuments as $document) {
-                if ($document->isValid()) {
-                    $documentFilename = $this->storeFile($document, 'upload/document');
-                    $documentFilenames[] = $documentFilename;
-                }
-            }
-    
-            $save->team_document = $documentFilenames;
-        }
+        $save->member_1 = $request->member_1;
+        $save->member_2 = $request->member_2;
+        $save->member_3 = $request->member_3;
         $save->save();
 
         if ($request->is('admin/*')) {

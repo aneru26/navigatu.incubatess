@@ -16,9 +16,9 @@ return new class extends Migration
             $table->string('team_logo')->nullable();
             $table->string('team_name')->nullable();
             $table->string('startup_name')->nullable();
-            $table->string('document_type')->nullable();
-            $table->string('link')->nullable();
-            $table->string('team_document')->nullable();
+            $table->string('member_1') ->nullable();
+            $table->string('member_2') ->nullable();
+            $table->string('member_3') ->nullable();
             $table->unsignedBigInteger('created_by')->nullable(); // Change data type to int
             $table->tinyInteger('is_delete')->default(0)->comment('0:not deleted, 1: deleted');
             $table->timestamps();

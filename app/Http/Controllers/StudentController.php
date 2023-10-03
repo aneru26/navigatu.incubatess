@@ -110,9 +110,6 @@ class StudentController extends Controller
     public function update($id, Request $request)
     {
         request()->validate([
-            'email' => 'required|unique:users,'.$id,
-            
-
             
         ]);
 

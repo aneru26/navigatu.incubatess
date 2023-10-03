@@ -13,7 +13,7 @@
           </div>
 
           <div class="col-sm-6" style="text-align:right;">
-            <a href="{{ url('admin/grants/add')}}" class="btn btn-primary">Add New Grants</a>
+            <a href="{{ url('admin/grants/add')}}" class="btn btn-outline-primary btn-sm">Add New Grants</a>
           </div>
           
         </div>
@@ -36,9 +36,9 @@
                   <div class="row">
 
 
-                <div class="form-group col-md-3">
-                    <label >Grants Name</label>
-                    <input type="text" class="form-control" value="{{ Request::get('grants_name') }}" name="grants_name"  placeholder="Grants Name">
+                <div class="form-group col-md-2">
+                  
+                    <input type="text" class="form-control form-control-sm" value="{{ Request::get('grants_name') }}" name="grants_name"  placeholder="Grants Name">
                   </div>
                   <!-- <div class="form-group col-md-2">
                     <label>Email</label>
@@ -57,8 +57,8 @@
 
                   <div class="form-group col-md-3">
                     
-                  <button class="btn btn-primary" type="submit" style="margin-top: 31px;">Search </button>
-                  <a href="{{ url('admin/grants/list') }}" class="btn btn-success" type="submit" style="margin-top: 31px;">Reset </a>
+                  <button class="btn btn-outline-primary btn-sm" type="submit" >Search </button>
+                  <a href="{{ url('admin/grants/list') }}" class="btn btn-outline-success btn-sm" type="submit" >Reset </a>
                   </div>
 
                   </div>
@@ -107,7 +107,6 @@
       Actions
     </button>
     <div class="dropdown-menu">
-    <a class="dropdown-item" href="{{ url('admin/grants/show/'.$value->id) }}">Show</a>
       <a class="dropdown-item" href="{{ url('admin/grants/edit/'.$value->id) }}">Edit</a>
       <a class="dropdown-item" href="{{ url('admin/grants/delete/'.$value->id) }}">Delete</a>
     </div>

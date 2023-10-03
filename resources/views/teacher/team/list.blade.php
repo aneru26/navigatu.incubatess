@@ -13,7 +13,7 @@
           </div>
 
           <div class="col-sm-6" style="text-align:right;">
-            <a href="{{ url('teacher/team/add')}}" class="btn btn-primary">Add New Team</a>
+            <a href="{{ url('teacher/team/add')}}" class="btn btn-outline-primary btn-sm">Add New Team</a>
           </div>
           
         </div>
@@ -36,16 +36,16 @@
                   <div class="row">
 
 
-                <div class="form-group col-md-3">
-                    <label >Team Name</label>
-                    <input type="text" class="form-control" value="{{ Request::get('team_name') }}" name="team_name"  placeholder="Team Name">
+                <div class="form-group col-md-2">
+                    
+                    <input type="text" class="form-control form-control-sm" value="{{ Request::get('team_name') }}" name="team_name"  placeholder="Team Name">
                   </div>
 
 
                   <div class="form-group col-md-3">
                     
-                  <button class="btn btn-primary" type="submit" style="margin-top: 31px;">Search </button>
-                  <a href="{{ url('teacher/team/list') }}" class="btn btn-success" type="submit" style="margin-top: 31px;">Reset </a>
+                  <button class="btn btn-outline-primary btn-sm" type="submit">Search </button>
+                  <a href="{{ url('teacher/team/list') }}" class="btn btn-outline-success btn-sm" type="submit">Reset </a>
                   </div>
 
                   </div>
@@ -71,7 +71,6 @@
                       <th >Team Logo</th>
                       <th>Team Name</th>
                       <th>StartUp Name</th>
-                      <th>Documents</th>
                       <th>Created By</th>
                       <th >Created Date</th>
                       <th >Action</th>
@@ -86,22 +85,7 @@
                           @endif
                         </td>
                         <td>{{ $value->team_name}}</td>
-                        <td>{{ $value->startup_name}}</td>
-                        <td>
-    @if(!empty($value->getProfileDirect1()))
-        <select id="documentDropdown" onchange="viewDocument(this)">
-            <option value="">Select Document</option>
-            @foreach($value->getProfileDirect1() as $documentUrl)
-                @php
-                    $fileExtension = pathinfo($documentUrl, PATHINFO_EXTENSION);
-                @endphp
-                <option value="{{ $documentUrl }}">{{ strtoupper($fileExtension) }} Document</option>
-            @endforeach
-        </select>
-    @endif
-</td>
-
-                      
+                        <td>{{ $value->startup_name}}</td>      
                         <td>{{ $value->created_by_name}}</td>
                         <td>{{  date('m-d-Y  H:i A', strtotime($value->created_at)) }}</td>
                         <td style="min-width: 140px;">

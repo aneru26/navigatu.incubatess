@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\User;
 use Illuminate\Support\Facades\Request;
+use Illuminate\Support\Carbon;
 
 class SubmissionModel extends Model
 {
@@ -19,37 +20,54 @@ class SubmissionModel extends Model
     }
     
     static public function getSubmission()
-    {
-        $return = self::select('submission.*', 'users.name as created_by_name', 'users.last_name')
-            ->join('users', 'users.id', '=', 'submission.created_by')
-            ->where('submission.is_delete', '=', 0);
+{
+    $return = self::select(
+        'submission.*',
+        'users.name as created_by_name',
+        'users.last_name',
+        'users.team_id'
+    )
+        ->join('users', 'users.id', '=', 'submission.created_by')
+        ->with('team') // Load the 'team' relationship
+        ->where('submission.is_delete', '=', 0);
 
-            if (!empty(Request::get('document_type'))) {
-                $document_type = strtolower(Request::get('document_type')); // Convert search term to lowercase
-                $return = $return->whereRaw('LOWER(submission.document_type) LIKE ?', ['%' . $document_type . '%']);
+    $searchQuery = Request::get('search');
+
+    if (!empty($searchQuery)) {
+        $searchQuery = strtolower($searchQuery); 
+        $terms = explode(' ', $searchQuery); // Split the search query into terms
+
+        $return = $return->where(function($query) use ($terms) {
+            foreach ($terms as $term) {
+                $term = '%' . $term . '%';
+                $query->where(function ($subquery) use ($term) {
+                    $subquery->whereRaw('LOWER(submission.document_type) LIKE ?', [$term])
+                        ->orWhereRaw('LOWER(users.name) ILIKE ?', [$term])
+                        ->orWhereRaw('LOWER(users.last_name) ILIKE ?', [$term]);
+                });
             }
-    
-        // Check if a search term for the creator's name is provided in the request
-        if (!empty(Request::get('created_by'))) {
-            $createdByName = Request::get('created_by');
-    
-            // Add a condition to filter by the creator's name
-            $return = $return->where(function ($query) use ($createdByName) {
-                $query->where('users.name', 'like', '%' . $createdByName . '%')
-                    ->orWhere('users.last_name', 'like', '%' . $createdByName . '%');
-            });
+        });
+
+        try {
+            $date = Carbon::createFromFormat('m-d-Y', $searchQuery);
+            // Attempt to parse the search query as a date and search by it
+            if ($date->isValid()) {
+                // Convert to standard database format "YYYY-MM-DD"
+                $dateString = $date->toDateString();
+                $return->orWhereDate('submission.created_at', '=', $dateString);
+            }
+        } catch (\Exception $e) {
+            // Handle the case where the search query is not a valid date
         }
-    
-        $return = $return->orderBy('submission.id', 'desc')
-            ->paginate(5);
-    
-        return $return;
     }
-    
-    
-    
 
+    $return = $return->orderBy('submission.id', 'desc')
+        ->paginate(5);
 
+    return $return;
+}
+
+    
     public function getProfileDirect1()
 {
     $documentUrls = [];
@@ -87,6 +105,12 @@ public function team()
         return $return;
     }
 
+    static public function getTotalSubmission($is_delete)
+    {
+        return self::select('submission.id')
+                    ->where('is_delete','=',0)
+                    ->count();
+    }
 }
 
 

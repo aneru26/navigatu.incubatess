@@ -57,7 +57,7 @@
 
                   <div class="form-group col-md-">
     <label>Team Documents <span style="color: red;">*</span> </label>
-    <input type="file" class="form-control" multiple value="{{ $getRecord->team_documents }}" name="team_documents[]" multiple>
+    <input type="file" class="form-control" value="{{ $getRecord->team_documents }}" name="team_documents[]" multiple>
     <div style="color:red">{{ $errors->first('team_documents') }}</div>
     
 </div>

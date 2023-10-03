@@ -13,7 +13,8 @@
           </div>
 
           <div class="col-sm-6" style="text-align:right;">
-            <a href="{{ url('student/submission/add')}}" class="btn btn-primary">Add New Submission</a>
+            <a href="{{ url('student/submission/add')}}" class="btn btn-primary btn-sm">
+              Add New Submission</a>
           </div>
           
         </div>
@@ -44,8 +45,8 @@
 
                   <div class="form-group col-md-3">
                     
-                  <button class="btn btn-primary" type="submit" style="margin-top: 31px;">Search </button>
-                  <a href="{{ url('student/submission/list') }}" class="btn btn-success" type="submit" style="margin-top: 31px;">Reset </a>
+                  <button class="btn btn-primary btn-sm" type="submit" style="margin-top: 31px;">Search </button>
+                  <a href="{{ url('student/submission/list') }}" class="btn btn-success btn-sm" type="submit" style="margin-top: 31px;">Reset </a>
                   </div>
 
                   </div>

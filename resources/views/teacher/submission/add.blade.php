@@ -24,7 +24,7 @@
             <div class="card card-primary">
               
              
-              <form method="post" action="{{ url('admin/submission/add') }}" enctype="multipart/form-data">
+              <form method="post" action="{{ url('teacher/submission/add') }}" enctype="multipart/form-data">
               {{ csrf_field() }}
                 <div class="card-body">
                 

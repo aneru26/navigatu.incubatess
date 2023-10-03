@@ -42,15 +42,35 @@
 
 <div class="form-group col-md">
     <label>Team Name <span style="color: red;">*</span></label>
-    <input type="text" class="form-control" value="{{ $team->team_name }}" name="team_name" required placeholder="Team Name">
+    <input type="text" class="form-control" value="{{ $team->team_name }}" name="team_name"  placeholder="Team Name">
     <div style="color:red">{{ $errors->first('team_name') }}</div>
 </div>
 <br>
                 <h3>StartUp Details</h3>
 <div class="form-group col-md">
     <label>StartUp Name <span style="color: red;">*</span></label>
-    <input type="text" class="form-control" value="{{ $team->startup_name }}" name="startup_name" required placeholder="StartUp Name">
+    <input type="text" class="form-control" value="{{ $team->startup_name }}" name="startup_name" placeholder="StartUp Name">
     <div style="color:red">{{ $errors->first('startup_name') }}</div>
+</div>
+
+
+<h3>Member Details</h3>
+<div class="form-group col-md">
+    <label>Member 1 <span style="color: red;">*</span></label>
+    <input type="text" class="form-control" value="{{ $team->member_1 }}" name="member_1"  placeholder="Member Name">
+    <div style="color:red">{{ $errors->first('member_1') }}</div>
+</div>
+
+<div class="form-group col-md">
+    <label>Member 2 <span style="color: red;">*</span></label>
+    <input type="text" class="form-control" value="{{ $team->member_2 }}" name="member_2"  placeholder="Member Name">
+    <div style="color:red">{{ $errors->first('member_2') }}</div>
+</div>
+
+<div class="form-group col-md">
+    <label>Member 3 <span style="color: red;">*</span></label>
+    <input type="text" class="form-control" value="{{ $team->member_3 }}" name="member_3" r placeholder="Member Name">
+    <div style="color:red">{{ $errors->first('member_3') }}</div>
 </div>
 
 

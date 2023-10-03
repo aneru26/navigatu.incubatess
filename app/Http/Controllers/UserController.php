@@ -216,21 +216,10 @@ class UserController extends Controller
 
     $team->team_name = trim($request->input('team_name'));
     $team->startup_name = trim($request->input('startup_name'));
-    $team->document_type = trim($request->input('document_type'));
-    $team->links = trim($request->input('links'));
-
-    if (!empty($request->file('team_documents'))) {
-        $documentFilenames = [];
-
-        foreach ($request->file('team_documents') as $document) {
-            if ($document->isValid()) {
-                $documentFilename = $this->storeFile($document, 'upload/document');
-                $documentFilenames[] = $documentFilename;
-            }
-        }
-
-        $team->team_document = json_encode($documentFilenames);
-    }
+    $team->member_1 = trim($request->input('member_1'));
+    $team->member_2 = trim($request->input('member_2'));
+    $team->member_3 = trim($request->input('member_3'));
+    
 
     $team->save();
 

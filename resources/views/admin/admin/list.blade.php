@@ -13,7 +13,7 @@
           </div>
 
           <div class="col-sm-6" style="text-align:right;">
-            <a href="{{ url('admin/admin/add')}}" class="btn btn-primary">Add New Admin</a>
+            <a href="{{ url('admin/admin/add')}}" class="btn btn-outline-primary btn-sm">Add New Admin</a>
           </div>
           
         </div>
@@ -37,9 +37,8 @@
                   <div class="row">
 
 
-                <div class="form-group col-md-3">
-                    <label >Admin Name</label>
-                    <input type="text" class="form-control" value="{{ Request::get('name') }}" name="name"  placeholder="Admin Name">
+                <div class="form-group col-md-2">
+                    <input type="text" class="form-control form-control-sm" value="{{ Request::get('name') }}" name="name"  placeholder="Admin Name">
                   </div>
                   <!-- <div class="form-group col-md-3">
                     <label>Email</label>
@@ -53,8 +52,8 @@
 
                   <div class="form-group col-md-3">
                     
-                  <button class="btn btn-primary" type="submit" style="margin-top: 31px;">Search </button>
-                  <a href="{{ url('admin/admin/list') }}" class="btn btn-success" type="submit" style="margin-top: 31px;">Reset </a>
+                  <button class="btn btn-outline-primary btn-sm" type="submit">Search </button>
+                  <a href="{{ url('admin/admin/list') }}" class="btn btn-outline-success btn-sm" type="submit">Reset </a>
                   </div>
 
                   </div>
@@ -83,8 +82,6 @@
                       <th >Profile Pic</th>
                       <th>First Name</th>
                       <th>Last Name</th>
-                      <th>Department</th>
-                      <th>Designation</th>
                       <th>Email</th>
                       <th >Created Date</th>
                       <th >Action</th>
@@ -100,8 +97,6 @@
                           @endif
                         <td>{{  $value->name }}</td>
                         <td>{{  $value->last_name }}</td>
-                        <td>{{  $value->program }}</td>
-                        <td>{{  $value->designation }}</td>
                         <td>{{  $value->email }}</td>
                         <td>{{  date('m-d-Y , H:i A', strtotime($value->created_at)) }}</td>
                         <td style="min-width: 140px;"> 
@@ -129,9 +124,9 @@
             </div>
             <!-- /.card -->
           </div>
-          <!-- /.col -->
+        
         </div>
-        <!-- /.row -->
+      
         </section> 
   </div>
   <!-- /.content-wrapper -->

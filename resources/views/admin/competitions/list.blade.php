@@ -13,7 +13,7 @@
           </div>
 
           <div class="col-sm-6" style="text-align:right;">
-            <a href="{{ url('admin/competitions/add')}}" class="btn btn-primary">Add New Competition</a>
+            <a href="{{ url('admin/competitions/add')}}" class="btn btn-outline-primary btn-sm">Add New Competition</a>
           </div>
           
         </div>
@@ -36,29 +36,14 @@
                   <div class="row">
 
 
-                <div class="form-group col-md-3">
-                    <label >Competition Name</label>
-                    <input type="text" class="form-control" value="{{ Request::get('competition_name') }}" name="competition_name"  placeholder="Competition Name">
+                <div class="form-group col-md-2">
+                    <input type="text" class="form-control form-control-sm" value="{{ Request::get('competition_name') }}" name="competition_name"  placeholder="Competition Name">
                   </div>
-                  <!-- <div class="form-group col-md-2">
-                    <label>Email</label>
-                    <input type="text" class="form-control" name="email" value="{{ Request::get('email') }}" placeholder="Email">
-                  </div>
-
-                  <div class="form-group col-md-2">
-                    <label>Team Name</label>
-                    <input type="text" class="form-control" name="team" value="{{ Request::get('team') }}" placeholder="Team Name">
-                  </div>
-
-                  <div class="form-group col-md-2 ">
-                    <label>Date</label>
-                    <input type="date" class="form-control" name="date" value="{{ Request::get('date') }}" placeholder="Email">
-                  </div> -->
-
+    
                   <div class="form-group col-md-3">
                     
-                  <button class="btn btn-primary" type="submit" style="margin-top: 31px;">Search </button>
-                  <a href="{{ url('admin/competitions/list') }}" class="btn btn-success" type="submit" style="margin-top: 31px;">Reset </a>
+                  <button class="btn btn-outline-primary btn-sm" type="submit" >Search </button>
+                  <a href="{{ url('admin/competitions/list') }}" class="btn btn-outline-success btn-sm" type="submit" >Reset </a>
                   </div>
 
                   </div>
@@ -109,7 +94,6 @@
       Actions
     </button>
     <div class="dropdown-menu">
-    <a class="dropdown-item" href="{{ url('admin/competitions/show/'.$value->id) }}">Show</a>
       <a class="dropdown-item" href="{{ url('admin/competitions/edit/'.$value->id) }}">Edit</a>
       <a class="dropdown-item" href="{{ url('admin/competitions/delete/'.$value->id) }}">Delete</a>
     </div>

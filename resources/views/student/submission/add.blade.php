@@ -53,7 +53,7 @@
 
                   <div class="form-group col-md-">
                     <label >Team Document <span style="color: red;">*</span> </label>
-                    <input type="file" class="form-control" name="team_documents[]" multiple>
+                    <input type="file" class="form-control" name="team_documents[]" >
                     <div style="color:red">{{ $errors->first('team_document') }}</div>
                   </div>
 

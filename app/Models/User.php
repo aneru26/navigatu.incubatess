@@ -11,6 +11,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Request;
 use App\Models\TeamModel;
 use App\Models\SubmissionModel;
+use Illuminate\Support\Carbon;
 
 class User extends Authenticatable
 {
@@ -87,37 +88,44 @@ class User extends Authenticatable
     
         return $return;
     }
+
+    
     static public function getStudent()
     {
         $return = self::select('users.*', 'team.team_name as team_name')
             ->join('team', 'team.id', '=', 'users.team_id', 'left')
             ->where('users.user_type', '=', 2)
             ->where('users.is_delete', '=', 0);
-    
-        if (!empty(Request::get('name'))) {
-            $name = strtolower(Request::get('name')); // Convert search term to lowercase
-            $return = $return->whereRaw('LOWER(users.name) LIKE ?', ['%' . $name . '%']);
+
+        $searchQuery = Request::get('search');
+
+        if (!empty($searchQuery)) {
+            $searchQuery = strtolower($searchQuery); // Convert search term to lowercase
+            $return = $return->where(function ($query) use ($searchQuery) {
+                $query->whereRaw('LOWER(users.name) LIKE ?', ['%' . $searchQuery . '%'])
+                    ->orWhereRaw('LOWER(users.email) LIKE ?', ['%' . $searchQuery . '%'])
+                    ->orWhereRaw('LOWER(team.team_name) LIKE ?', ['%' . $searchQuery . '%']);
+
+                // Attempt to parse the searchQuery as a date using Carbon
+                try {
+                    $date = Carbon::createFromFormat('m-d-Y', $searchQuery);
+
+                    if ($date->isValid()) {
+                        // Convert to standard database format "YYYY-MM-DD"
+                        $dateString = $date->toDateString();
+                        $query->orWhereDate('users.created_at', '=', $dateString);
+                    }
+                } catch (\Exception $e) {
+                    // Handle parsing errors if necessary
+                }
+            });
         }
-    
-        if (!empty(Request::get('email'))) {
-            $email = strtolower(Request::get('email')); // Convert search term to lowercase
-            $return = $return->whereRaw('LOWER(users.email) LIKE ?', ['%' . $email . '%']);
-        }
-    
-        if (!empty(Request::get('team'))) {
-            $team = strtolower(Request::get('team')); // Convert search term to lowercase
-            $return = $return->whereRaw('LOWER(team.team_name) LIKE ?', ['%' . $team . '%']);
-        }
-    
-        if (!empty(Request::get('date'))) {
-            $return = $return->whereDate('users.created_at', '=', Request::get('date'));
-        }
-    
+
         $return = $return->orderBy('users.id', 'desc')
             ->paginate(5);
-    
+
         return $return;
-    }
+    }   
     
 
     static public function getEmailSingle($email)
@@ -215,6 +223,7 @@ public function countSubmittedDocuments()
 
 public function submissions()
 {
-    return $this->hasMany(SubmissionModel::class,);
+    return $this->hasMany(SubmissionModel::class, 'created_by', 'id');
 }
+
 }
