@@ -51,7 +51,17 @@
                 <div style="color:red">{{ $errors->first('startup_name') }}</div>
               </div>
 
-
+              <ul class="list-group list-group-unbordered mb-3 ">
+                  <li class="list-group-item">
+                    <b>Member 1:</b> <a class="float-right">{{ $getRecord->member_1 }}</a>
+                  </li>
+                  <li class="list-group-item">
+                    <b>Member 2:</b> <a class="float-right">{{ $getRecord->member_2 }}</a>
+                  </li>
+                  <li class="list-group-item">
+                    <b>Member 3:</b> <a class="float-right">{{ $getRecord->member_3 }}</a>
+                  </li>
+                </ul>
 
 
                 </div>

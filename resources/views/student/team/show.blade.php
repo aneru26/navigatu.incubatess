@@ -101,7 +101,7 @@
             <!-- Profile Image -->
             <div class="card  card-outline ">
             <div>
-                            <a href="{{ url('student/team/edit') }}" class="float-right btn btn-sm btn-primary rounded-pill my-3 mx-3">
+                            <a href="{{ url('student/team/edit') }}" class="float-right btn btn-sm btn-outline-primary rounded-pill my-3 mx-3">
                                 <i class="fas fa-pencil-alt"></i> Edit My Team
                             </a>
                         </div>

@@ -10,18 +10,44 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str; 
 use Illuminate\Support\Facades\Storage;
 use App\Models\GrantsModel;
+use Illuminate\Support\Carbon;
 
 class GrantsController extends Controller
 {
       
     public function list()
-{
-    $data['getRecord'] = GrantsModel::getGrants();
-    $data['header_title'] = "Grants List";
+    {
+        // Get all grant records
+        $grants = GrantsModel::getGrants();
     
-    // Assuming 'student.competitions.list' is the view for students
-    return view(request()->is('admin/*') ? 'admin.grants.list' : (request()->is('student/*') ? 'student.grants.list' : 'teacher.grants.list'), $data);
-}
+        // Get the current date
+        $currentDate = Carbon::now();
+    
+        // Separate upcoming and missed deadlines
+        $upcomingDeadlines = [];
+        $missedDeadlines = [];
+    
+        foreach ($grants as $grant) {
+            if ($currentDate->lessThan($grant->deadline)) {
+                $upcomingDeadlines[] = $grant;
+            } else {
+                $missedDeadlines[] = $grant;
+            }
+        }
+    
+        // Pass grant records, upcoming deadlines, and missed deadlines to the view
+        $data['getRecord'] = $grants;
+        $data['upcomingDeadlines'] = $upcomingDeadlines;
+        $data['missedDeadlines'] = $missedDeadlines;
+        $data['header_title'] = "Grants List";
+    
+        // Determine the view based on the request path
+        $view = request()->is('admin/*') ? 'admin.grants.list' : (request()->is('student/*') ? 'student.grants.list' : 'teacher.grants.list');
+    
+        // Return the view with the data
+        return view($view, $data);
+    }
+    
 
       public function add()
     {

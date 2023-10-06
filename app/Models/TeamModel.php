@@ -37,7 +37,7 @@ class TeamModel extends Model
         }
     
         $return = $return->orderBy('team.id', 'desc')
-            ->paginate(3);
+            ->paginate(5);
     
         return $return;
     }

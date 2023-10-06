@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="//cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 @extends('layouts.app')  
 
 @section('content')
@@ -23,37 +25,7 @@
     <!-- Main content -->
     <section class="content">
       <div class="container-fluid">
-        <div class="row">
-          
-          <div class="col-md-12">
-           
-            <div class="card ">
-            <div class="card-header">
-                <h3 class="card-title">Search Student</h3>
-              </div>
-              <form method="get" action="" >
-                <div class="card-body p-2 ">
-                  <div class="row">
-
-
-                <div class="form-group col-md-2">
-                    
-                    <input type="text" class="form-control form-control-sm" value="{{ Request::get('team_name') }}" name="team_name"  placeholder="Team Name">
-                  </div>
-
-
-                  <div class="form-group col-md-3">
-                    
-                  <button class="btn btn-outline-primary btn-sm" type="submit">Search </button>
-                  <a href="{{ url('admin/team/list') }}" class="btn btn-outline-success btn-sm" type="submit">Reset </a>
-                  </div>
-
-                  </div>
-                </div>
-              </form>
-             </div>     
-          </div>    
-         </div>
+        
 
           @include(' _message')
 
@@ -63,8 +35,10 @@
                 <h3 class="card-title">Team List </h3>
               </div>
               <!-- /.card-header -->
-              <div class="card-body p-0 table-responsive" style="overflow:auto; " >
-                <table class="table table-striped">
+              
+              <div class="card-body table-responsive" style="overflow:auto; " >
+              
+                <table class="table table-striped" id="myTable">
                   <thead>   
                     <tr>
                      
@@ -104,6 +78,8 @@
                     @endforeach
                   </tbody>
                 </table>
+
+               
                 <div style="padding: 10px; float:right;">
                 {!! $getRecord->appends(Illuminate\Support\Facades\Request::except('page'))->links() !!}
               </div>

@@ -126,6 +126,7 @@ public function update($id, Request $request)
         $submission->team_document = $documentFilenames;
     }
     $submission->status =  $request->status;
+    $submission->comment =  $request->comment;
     $submission->save();
 
     if ($request->is('admin/*')) {

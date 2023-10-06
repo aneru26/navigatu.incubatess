@@ -29,13 +29,13 @@
                 <div class="card-body">
                 
 
-                <div class="form-group col-md-">
+                <div class="form-group col-md-12">
                     <label >Document Type <span style="color: red;">*</span></label>
                     <input type="text" class="form-control" value="{{ $getRecord->document_type }}" name="document_type" required placeholder="Document Type">
                     <div style="color:red">{{ $errors->first('document_type') }}</div>
                   </div>
 
-                  <div class="form-group col-md-">
+                  <div class="form-group col-md-12">
                     <label >Status <span style="color: red;">*</span> </label>
                     <select class="form-control" required name="status" >
                         <option value="">Select Status</option>
@@ -44,21 +44,14 @@
                         <div style="color:red">{{ $errors->first('status') }}</div>
                     </select>
 
-            
-<!-- 
-                  <div class="form-group col-md-">
-                    <label >Links <span style="color: red;">*</span></label>
-                    <input type="text" class="form-control" value="{{ $getRecord->links }}" name="links"  placeholder="Links">
-                    <div style="color:red">{{ $errors->first('links') }}</div>
-                  </div> -->
-
-                  <!-- <div class="form-group col-md-">
-    <label>Team Documents <span style="color: red;">*</span> </label>
-    <input type="file" class="form-control" multiple value="{{ $getRecord->team_documents }}" name="team_documents[]" multiple>
-    <div style="color:red">{{ $errors->first('team_documents') }}</div> -->
     
 </div>
 
+<div class="form-group col-md-12">
+    <label>Comment <span style="color: red;">*</span></label>
+    <textarea class="form-control" name="comment" required placeholder="Comment">{{ $getRecord->comment }}</textarea>
+    <div style="color:red">{{ $errors->first('comment') }}</div>
+</div>
 
                 </div>
                 <!-- /.card-body -->

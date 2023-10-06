@@ -150,7 +150,7 @@
       <div class="col-12 col-md-12 col-lg-8 order-2 order-md-1">
       <h1 class="text-primary text-center border border-black my-3 shadow-lg p-3  bg-white rounded"><i ></i> Competitions</h1>
       @foreach($getRecord as $value)
-        <div class="row border border-black mt-2 shadow-lg p-3 mb-4 bg-white rounded">
+        <div class="row mt-2 shadow-lg p-3 mb-4 bg-white rounded">
           <div class="col-12">
           
 
@@ -158,7 +158,8 @@
                 <div class="user-block">
                  
                   <span class="">
-                   <h4 class="content text-primary">Competition Name:{{  $value->competition_name }}</h4> 
+                  <a href="#">Competition Name:{{  $value->competition_name }} </a>
+                    
                   </span> 
                   <span class="description">Organization Host:{{$value->organization_host }}</span>
                 </div>

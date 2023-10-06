@@ -22,34 +22,6 @@
         <!-- Main content -->
         <section class="content">
             <div class="container-fluid">
-                <div class="row">
-
-                    <div class="col-md-12">
-
-                        <div class="card ">
-                            <div class="card-header">
-                                <h3 class="card-title">Search Incubatees </h3>
-                            </div>
-                            <form method="get" action="">
-                                <div class="card-body p-2">
-                                    <div class="row">
-                                        <div class="form-group col-md-2">
-                                            <input type="text" class="form-control form-control-sm"
-                                                value="{{ Request::get('search') }}" name="search"
-                                                placeholder="Search ">
-                                        </div>
-                                        <div class="form-group col-md-2">
-                                            <button class="btn btn-outline-primary btn-sm" type="submit">Search
-                                            </button>
-                                            <a href="{{ url('admin/student/list') }}"
-                                                class="btn btn-outline-success btn-sm" type="submit">Reset</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
 
                 @include(' _message')
 
@@ -58,8 +30,8 @@
                         <h3 class="card-title">Incubatees List </h3>
                     </div>
                     <!-- /.card-header -->
-                    <div class="card-body p-0 table-responsive" style="overflow:auto; ">
-                        <table class="table table-striped">
+                    <div class="card-body table-responsive" style="overflow:auto; ">
+                    <table class="table table-striped" id="myTable">
                             <thead>
                                 <tr>
 

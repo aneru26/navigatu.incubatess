@@ -150,7 +150,7 @@
       <div class="col-12 col-md-12 col-lg-8 order-2 order-md-1">
       <h1 class="text-primary text-center border border-black my-3 shadow-lg p-3  bg-white rounded"><i ></i> Grants</h1>
       @foreach($getRecord as $value)
-        <div class="row border mt-3 shadow-lg p-3  bg-white rounded">
+        <div class="row border mt-3 shadow-lg p-3  bg-white rounded ">
           <div class="col-12">
           
 
@@ -198,24 +198,39 @@
       </div>
       
    
-      <div class="col-12 col-md-12 col-lg-4 order-1 order-md-2">
-        <h3 class="text-dark border my-3 shadow-lg p-3  bg-white rounded text-center"><i></i> Due Date</h3>
-       
-        <div class="text-muted shadow-lg p-3  bg-white rounded">
-          <p class="text-sm">Client Company
-            <b class="d-block">Deveint Inc</b>
+      <div class="col-12 col-md-12 col-lg-4 order-1 order-md-2 text-center">
+        <h3 class="text-dark border border-dark my-3 shadow-lg p-3  bg-white rounded text-center"><i></i>Upcomming Deadline</h3>
+        @foreach($upcomingDeadlines as $deadline)
+        <div class="text-muted  shadow-sm p-3  bg-white rounded w-50 text-center mx-auto d-inline-block">
+          <p class="text-sm">Grants Name:
+            <b class="d-block">{{ $deadline->grants_name }}</b>
           </p>
-          <p class="text-sm">Project Leader
-            <b class="d-block">Tony Chicken</b>
+          <p class="text-sm">Date:
+            <b class="d-block">{{ $deadline->deadline }}</b>
           </p>
         </div>
 
-     
+        @endforeach
+
+        <h3 class="text-dark border border-dark my-3 shadow-lg p-3  bg-white rounded text-center"><i></i> Missed Deadline</h3>
+        @foreach($missedDeadlines as $deadline)
+        <div class="text-muted  shadow-sm p-3  bg-white rounded w-50 text-center mx-auto d-inline-block">
+          <p class="text-sm">Grants Name:
+            <b class="d-block">{{ $deadline->grants_name }}</b>
+          </p>
+          <p class="text-sm">Date:
+            <b class="d-block">{{ $deadline->deadline }}</b>
+          </p>
+        </div>
+
+        @endforeach
         <div class="text-center mt-5 mb-3 ">
           <a href="#" class="btn btn-sm btn-primary">Add files</a>
          
         </div>
       </div>
+
+      
     </div>
   </div>
   <!-- /.card-body -->

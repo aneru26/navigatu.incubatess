@@ -13,7 +13,7 @@
           </div>
 
           <div class="col-sm-6" style="text-align:right;">
-            <a href="{{ url('student/submission/add')}}" class="btn btn-primary btn-sm">
+            <a href="{{ url('student/submission/add')}}" class="btn btn-outline-primary btn-sm">
               Add New Submission</a>
           </div>
           
@@ -24,37 +24,6 @@
     <!-- Main content -->
     <section class="content">
       <div class="container-fluid">
-        <div class="row">
-          
-          <div class="col-md-12">
-           
-            <div class="card ">
-            <div class="card-header">
-                <h3 class="card-title">Search Student</h3>
-              </div>
-              <form method="get" action="" >
-                <div class="card-body p-2 ">
-                  <div class="row">
-
-
-                <div class="form-group col-md-3">
-                    <label >Document Type</label>
-                    <input type="text" class="form-control" value="{{ Request::get('document_type') }}" name="document_type"  placeholder="Document Type">
-                  </div>
-
-
-                  <div class="form-group col-md-3">
-                    
-                  <button class="btn btn-primary btn-sm" type="submit" style="margin-top: 31px;">Search </button>
-                  <a href="{{ url('student/submission/list') }}" class="btn btn-success btn-sm" type="submit" style="margin-top: 31px;">Reset </a>
-                  </div>
-
-                  </div>
-                </div>
-              </form>
-             </div>     
-          </div>    
-         </div>
 
           @include(' _message')
 
@@ -64,14 +33,15 @@
                 <h3 class="card-title">Submission List </h3>
               </div>
               <!-- /.card-header -->
-              <div class="card-body p-0 table-responsive" style="overflow:auto; " >
-              <table id="example" class="table table-striped" style="width:100%">
+              <div class="card-body table-responsive" style="overflow:auto; " >
+              <table class="table table-striped" id="myTable">
     <thead>
         <tr>
             <th>Document Type</th>
             <th>Other Links</th>
             <th>Documents</th>
             <th>Status</th>
+            <th>Comment</th>
             
             <th>Submitted Date</th>
             <th>Status</th>
@@ -96,7 +66,7 @@
                 @endif
             </td>
             <td>{{  ($value->status == 0) ? 'Pending' : 'Approved' }}
-            
+            <td>{{ $value->comment }}</td>
             <td>{{ date('m-d-Y ', strtotime($value->created_at)) }}</td>
             <td style="min-width: 140px;">
                 <div class="btn-group">
