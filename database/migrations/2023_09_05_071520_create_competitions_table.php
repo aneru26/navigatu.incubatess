@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('competitions', function (Blueprint $table) {
             $table->id();
-            $table->string('organization_name')->nullable();
+            $table->string('competition_name')->nullable();
             $table->string('organization_host')->nullable();
             $table->string('deadline')->nullable();
             $table->string('date_competition')->nullable();

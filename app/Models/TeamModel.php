@@ -11,6 +11,8 @@ class TeamModel extends Model
 {
     use HasFactory;
     protected $table ='team';
+
+    protected $primaryKey ='id';
     
     
     static public function getSingle($id)
@@ -30,11 +32,6 @@ class TeamModel extends Model
         $return = TeamModel::select('team.*', 'users.name as created_by_name')
             ->join('users', 'users.id', '=', 'team.created_by')
             ->where('team.is_delete', '=', 0);
-    
-        if (!empty(Request::get('team_name'))) {
-            $teamName = strtolower(Request::get('team_name')); // Convert search term to lowercase
-            $return = $return->whereRaw('LOWER(team.team_name) LIKE ?', ['%' . $teamName . '%']);
-        }
     
         $return = $return->orderBy('team.id', 'desc')
             ->paginate(5);
@@ -112,9 +109,6 @@ public function users()
         return $this->hasMany(User::class);
     }
 
-   
-
-
 
     public function getProfilePictureUrl()
     {
@@ -128,5 +122,10 @@ public function users()
         
         }
     
+}
+
+public function teamMembers()
+{
+    return $this->hasMany(teamMember::class,'team_id');
 }
 }

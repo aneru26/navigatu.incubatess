@@ -1,6 +1,6 @@
 @extends('layouts.app')  
 
-@section('content')
+@section('content') 
   
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
@@ -9,7 +9,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Submission List  </h1>
+            <h1>Submission List </h1>
           </div>
 
           <div class="col-sm-6" style="text-align:right;">
@@ -85,7 +85,7 @@
 </table>
 
                 <div style="padding: 10px; float:right;">
-              
+              {!! $getRecord->appends(Illuminate\Support\Facades\Request::except('page'))->links() !!}
               </div>
               </div>
               <!-- /.card-body -->

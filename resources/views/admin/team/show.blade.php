@@ -32,36 +32,73 @@
 
                 <div class="text-center">
                     
-                    @if(!empty($getRecord->getProfilePictureUrl()))
-                      <img src="{{ $getRecord->getProfilePictureUrl() }}" class="rounded-circle" style="width: 100px; height: 100px;">
+                    @if(!empty($team->getProfilePictureUrl()))
+                      <img src="{{ $team->getProfilePictureUrl() }}" class="rounded-circle" style="width: 100px; height: 100px;">
                     @endif
 
                   </div>
 
                   <div class="text-center">
                 
-                <h1><strong>{{ strtoupper($getRecord->team_name) }}</strong></h1>
-                <label >Team Name<span style="color: red;">*</span></label>
+                <h1><strong>{{ strtoupper($team->team_name) }}</strong></h1>
+               
                   </div>
                 
                   <div class="text-center">
                
-               <h2> {{ strtoupper($getRecord->startup_name ) }}</h2> 
-               <label >StartUp Name <span style="color: red;">*</span></label>
+               <h2> {{ strtoupper($team->startup_name ) }}</h2> 
+              
                 <div style="color:red">{{ $errors->first('startup_name') }}</div>
               </div>
 
-              <ul class="list-group list-group-unbordered mb-3 ">
-                  <li class="list-group-item">
-                    <b>Member 1:</b> <a class="float-right">{{ $getRecord->member_1 }}</a>
-                  </li>
-                  <li class="list-group-item">
-                    <b>Member 2:</b> <a class="float-right">{{ $getRecord->member_2 }}</a>
-                  </li>
-                  <li class="list-group-item">
-                    <b>Member 3:</b> <a class="float-right">{{ $getRecord->member_3 }}</a>
-                  </li>
-                </ul>
+              <div class="card">
+              <div class="card-header">
+                <h1 class="card-title">Member List </h1>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body  table-responsive" style="overflow:auto; ">
+              <table class="table table-striped" id="myTable">
+                  <thead>
+                    <tr>
+                  
+                      <th >Profile Pic</th>
+                      <th>First Name</th>
+                      <th>Last Name</th>
+                      <th>Id Number</th>
+                      <th>Program</th>
+                      <th >Created Date</th>
+                     
+                    </tr>
+                  </thead>
+                  <tbody>
+                  @if($team && $team->teamMembers)
+                  @forelse($team->teamMembers as $member)
+                <tr>
+                    <td>
+                        @if(!empty($member->profile_pic))
+                            <img src="{{ asset('upload/profile/' . $member->profile_pic) }}" style="height: 50px; width: 50px; border-radius: 50px;">
+                        @endif
+                    </td>
+                    <td>{{ $member->fname }}</td>
+                    <td>{{ $member->lname }}</td>
+                    <td>{{ $member->id_number }}</td>
+                    <td>{{ $member->program }}</td>
+                    <td>{{ date('m-d-Y, H:i A', strtotime($member->created_at)) }}</td>
+                  
+                </tr>
+                @empty
+          
+                @endforelse
+
+      @endif
+                  </tbody>
+                </table>
+                <div style="padding: 10px; float:right;">
+                
+              </div>
+              </div>
+              <!-- /.card-body -->
+            </div>
 
 
                 </div>

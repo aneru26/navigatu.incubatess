@@ -57,7 +57,7 @@ class UserController extends Controller
     {
         $id = Auth::user()->id;
         request()->validate([
-            'email' => 'required|email|unique:users,email,'.$id
+            'email' => 'required|unique:users,email,'.$id
         ]);
 
         $admin = User::getSingle($id);
@@ -159,7 +159,7 @@ class UserController extends Controller
         } else if ($user->user_type == 2) {
             // Student user
             $team = TeamModel::find($user->team_id);
-    
+            
             // Pass the team information to the view
             $data['team'] = $team;
     
@@ -227,6 +227,8 @@ class UserController extends Controller
 
     return redirect($redirectPath)->with('success', "Team Successfully Updated");
 }
+
+
 
 private function storeFile($file, $uploadPath)
 {

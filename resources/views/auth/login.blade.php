@@ -95,9 +95,9 @@
                 Remember Me
               </label>
             </div>
-         <!-- <p class="mb-0">
+         <p class="mb-0">
         <a href="{{ url('register')}}" class="text-center">Register a new membership</a>
-      </p>  -->
+      </p> 
           </div>
           <!-- /.col -->
           <div class="col-4">

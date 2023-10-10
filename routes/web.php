@@ -10,6 +10,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\SubmissionController;
 use App\Http\Controllers\TeamController;
+use App\Http\Controllers\TeamMemberController;
 use App\Models\GrantsModel;
 
 /*
@@ -202,9 +203,11 @@ Route::group(['middleware' => 'student'], function (){
     Route::get('student/account',[UserController::class, 'MyAccount'] );
     Route::post('student/account',[UserController::class, 'UpdateMyAccountStudent'] );
 
+    
+
     Route::get('student/team/add_team',[TeamController::class,'add'] );
     Route::post('student/team/add_team',[TeamController::class,'insert'] );
-    Route::get('student/team/show',[UserController::class,'showTeam'] );
+    Route::get('student/team/show',[UserController::class,'showTeam'] )->name('user.showTeam');
     Route::get('student/team/edit',[UserController::class,'editTeam'] );
     Route::post('student/team/edit',[UserController::class,'Update'] );
 
@@ -234,5 +237,17 @@ Route::group(['middleware' => 'student'], function (){
     Route::get('student/submission/edit/{id}',[SubmissionController::class,'edit'] );
     Route::post('student/submission/edit/{id}',[SubmissionController::class,'update'] );
     Route::get('student/submission/delete/{id}',[SubmissionController::class, 'delete'] );
+
+
+
+    //TeamMember
+
+    Route::get('student/teamMember/list',[TeamMemberController::class,'list'] );
+    Route::get('student/teamMember/add',[TeamMemberController::class,'add'] );
+    Route::post('student/teamMember/add',[TeamMemberController::class,'insert'] );
+    Route::get('student/teamMember/show/{id}',[TeamMemberController::class,'show'] );
+    Route::get('student/teamMember/edit/{id}',[TeamMemberController::class,'edit'] );
+    Route::post('student/teamMember/edit/{id}',[TeamMemberController::class,'update'] );
+    Route::get('student/teamMember/delete/{id}',[TeamMemberController::class, 'delete'] );
      
 });

@@ -15,7 +15,8 @@ class TeamController extends Controller
 {
     public function list()
     {
-        $data['getRecord']= TeamModel::getRecord();
+        
+        $data['getRecord']= TeamModel::getRecord(); 
         $data['header_title'] = "Team List";
         return view(request()->is('admin/*') ? 'admin.team.list' : 'teacher.team.list', $data); 
 
@@ -44,9 +45,6 @@ class TeamController extends Controller
     
     $save->team_name = $request->team_name;
     $save->startup_name = $request->startup_name;
-    $save->member_1 = $request->member_1;
-    $save->member_2 = $request->member_2;
-    $save->member_3 = $request->member_3;
     if ($request->hasFile('team_logo') && $request->file('team_logo')->isValid()) 
     {
         // ... (your existing code for handling team_logo)
@@ -95,15 +93,21 @@ public function edit($id)
 
 public function show($id)
 {
-    $data['getRecord'] = TeamModel::getSingle($id);
+
+    $team = TeamModel::find($id);
+
+
+    return view('admin.team.show')->with('team', $team);
+
+    // $data['getRecord'] = TeamModel::getSingle($id);
     
-    if (!empty($data['getRecord'])) {
-        $data['header_title'] = "Show Team Details";
-        $viewName = request()->is('admin/*') ? 'admin.team.show' : (request()->is('teacher/*') ? 'teacher.team.show' : 'admin.team.show');
-        return view($viewName, $data);
-    } else {
-        abort(404);
-    }
+    // if (!empty($data['getRecord'])) {
+    //     $data['header_title'] = "Show Team Details";
+    //     $viewName = request()->is('admin/*') ? 'admin.team.show' : (request()->is('teacher/*') ? 'teacher.team.show' : 'admin.team.show');
+    //     return view($viewName, $data);
+    // } else {
+    //     abort(404);
+    // }
 }
     
     public function update($id, Request $request)

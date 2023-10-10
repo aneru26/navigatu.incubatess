@@ -69,8 +69,8 @@
                   </div>
 
                   <div class="form-group col-md-6">
-                    <label >Budget <span style="color: red;">*</span> </label>
-                    <input type="text" class="form-control" value="{{ old ('budget', $getRecord->budget) }}" name="budget" placeholder="Budget">
+                    <label >Email <span style="color: red;">*</span> </label>
+                    <input type="email" class="form-control" value="{{ old ('budget', $getRecord->budget) }}" name="budget" placeholder="Budget">
                     <div style="color:red">{{ $errors->first('budget') }}</div>
                   </div>
 
@@ -122,7 +122,7 @@
                     <input type="text" class="form-control" name="email" value="{{ old ('email',$getRecord->email) }}" required placeholder="Email">
                    
                   </div>
-                  <div class="form-group">
+                  <div class="form-group col-md-12">
                     <label>Password <span style="color: red;">*</span></label>
                     <input type="password" class="form-control" name="password" placeholder="Password">
                     <div style="color:red" >{{ $errors->first('password')}}</div>

@@ -22,7 +22,9 @@
           <div class="col-md-12">
            
             <div class="card card-primary">
-              
+            <div class="col-sm-12 pt-2" style="text-align:right;">
+            <a href="{{ url('student/teamMember/add')}}" class="btn btn-outline-primary btn-sm">Add New Member</a>
+          </div>
              
               <form method="post" action="" enctype="multipart/form-data">
               {{ csrf_field() }}
@@ -52,33 +54,6 @@
     <input type="text" class="form-control" value="{{ $team->startup_name }}" name="startup_name" placeholder="StartUp Name">
     <div style="color:red">{{ $errors->first('startup_name') }}</div>
 </div>
-
-
-<h3>Member Details</h3>
-<div class="form-group col-md">
-    <label>Member 1 <span style="color: red;">*</span></label>
-    <input type="text" class="form-control" value="{{ $team->member_1 }}" name="member_1"  placeholder="Member Name">
-    <div style="color:red">{{ $errors->first('member_1') }}</div>
-</div>
-
-<div class="form-group col-md">
-    <label>Member 2 <span style="color: red;">*</span></label>
-    <input type="text" class="form-control" value="{{ $team->member_2 }}" name="member_2"  placeholder="Member Name">
-    <div style="color:red">{{ $errors->first('member_2') }}</div>
-</div>
-
-<div class="form-group col-md">
-    <label>Member 3 <span style="color: red;">*</span></label>
-    <input type="text" class="form-control" value="{{ $team->member_3 }}" name="member_3" r placeholder="Member Name">
-    <div style="color:red">{{ $errors->first('member_3') }}</div>
-</div>
-
-
-                
-               
-
-      
-
 
                 </div>
                 <!-- /.card-body -->

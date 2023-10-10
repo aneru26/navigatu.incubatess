@@ -36,16 +36,22 @@
                     <input type="text" class="form-control" value="{{ old ('last_name') }}" name="last_name" required placeholder="Last Name">
                   </div>
                   <div class="form-group">
-                    <label >Program</label>
-                    <input type="text" class="form-control" value="{{ old ('program') }}" name="program" required placeholder="Program">
+                    <label >Program  </label>
+                    <select class="form-control"  name="program" >
+                        <option value="">Select Program</option>
+                        <option value="BSIT">BSIT</option>
+                        <option value="BSIS">BSIS</option>
+                        <option value="BSCS">BSCS</option>
+                    </select>
+                    <div style="color:red">{{ $errors->first('program') }}</div>
                   </div>
                   <div class="form-group">
                     <label >Designation</label>
                     <input type="text" class="form-control" value="{{ old ('designation') }}" name="designation" required placeholder="Designation">
                   </div>  
                   <div class="form-group">
-                    <label>Email</label>
-                    <input type="email" class="form-control" name="email" value="{{ old ('email') }}" required placeholder="Email">
+                    <label>Username</label>
+                    <input type="text" class="form-control" name="email" value="{{ old ('email') }}" required placeholder="Email">
                     <div style="color:red" >{{ $errors->first('email')}}</div>
                   </div>
                   <div class="form-group">

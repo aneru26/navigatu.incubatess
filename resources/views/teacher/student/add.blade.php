@@ -72,8 +72,8 @@
 
 
                   <div class="form-group col-md-6">
-                    <label >Budget  </label>
-                    <input type="text" class="form-control" value="{{ old ('budget') }}" name="budget" placeholder="Budget">
+                    <label >Email  </label>
+                    <input type="email" class="form-control" value="{{ old ('budget') }}" name="budget" placeholder="Email">
                     <div style="color:red">{{ $errors->first('budget') }}</div>
                   </div>
 
