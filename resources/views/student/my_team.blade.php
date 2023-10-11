@@ -56,7 +56,7 @@
                   </div>
 
                   <div class="col-6 mb-3 pl-0">
-                    <h6>Email</h6>
+                    <h6>Username</h6>
                     <p class="text-muted">{{$getRecord->email}}</p>
                   </div>
 
@@ -71,7 +71,7 @@
                   </div>
 
                   <div class="col-6 mb-3 pl-0">
-                    <h6>Budget</h6>
+                    <h6>Email</h6>
                     <p class="text-muted">{{$getRecord->budget}}</p>
                   </div>
 

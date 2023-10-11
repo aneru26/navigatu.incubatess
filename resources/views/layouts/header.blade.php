@@ -3,7 +3,7 @@
 
 <nav class="main-header navbar navbar-expand-lg navbar-white navbar-light">
     <div class="container">
-        <a href="#" class="brand-link">
+        <a href="{{ url('admin/dashboard')}}" class="brand-link">
             <img src="{{ asset('dist/img/navigatu.jpg') }}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
             <span class="brand-text font-weight-light">Navigatu</span>
         </a>
