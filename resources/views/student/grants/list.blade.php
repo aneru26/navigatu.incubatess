@@ -74,7 +74,7 @@
 
         @endforeach
         <div class="text-center mt-5 mb-3 ">
-          <a href="#" class="btn btn-sm btn-primary">Add files</a>
+          <a href="{{ url('student/submission/add') }}" class="btn btn-sm btn-primary">Add files</a>
          
         </div>
       </div>

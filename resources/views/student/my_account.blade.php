@@ -92,8 +92,8 @@
                   </div>
 
                   <div class="form-group col-md-6">
-                    <label >Budget <span style="color: red;">*</span> </label>
-                    <input type="text" class="form-control" value="{{ old ('budget', $getRecord->budget) }}" name="budget" required placeholder="Budget">
+                    <label >Email <span style="color: red;">*</span> </label>
+                    <input type="email" class="form-control" value="{{ old ('budget', $getRecord->budget) }}" name="budget" required placeholder="Email">
                     <div style="color:red">{{ $errors->first('budget') }}</div>
                   </div>
 

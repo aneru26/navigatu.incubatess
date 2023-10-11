@@ -81,6 +81,12 @@
   });
 });
 </script>
+<!-- Apply Stacktable to the table with ID 'myTable' -->
+<script>
+  $(document).ready(function() {
+      $('#myTable').stacktable();
+  });
+</script>
 
     @yield('content')
 
@@ -122,9 +128,7 @@
 <script src="{{ asset ('dist/js/adminlte.js') }}"></script>
 <script src="https://cdn.datatables.net/v/bs5/dt-1.13.6/datatables.min.js"></script>
 
-
   
-
 @yield('script')
 
 </body>

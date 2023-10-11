@@ -91,7 +91,10 @@ class UserController extends Controller
         $id = Auth::user()->id;
         
         request()->validate([
-            'email' => 'required|unique:users,email,'.$id
+            'email' => 'required|unique:users,email,'.$id,
+            'id_number' => 'min:9',
+            'team_id' => 'integer',
+            'password' => 'required|min:8'
         ]);
 
         $student = User::getSingle($id);
@@ -216,11 +219,6 @@ class UserController extends Controller
 
     $team->team_name = trim($request->input('team_name'));
     $team->startup_name = trim($request->input('startup_name'));
-    $team->member_1 = trim($request->input('member_1'));
-    $team->member_2 = trim($request->input('member_2'));
-    $team->member_3 = trim($request->input('member_3'));
-    
-
     $team->save();
 
     $redirectPath = $request->is('admin/*') ? 'admin/team/list' : 'student/team/edit';

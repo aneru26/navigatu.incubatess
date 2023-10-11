@@ -161,10 +161,6 @@
                     <p class="text-muted">{{ $getRecord->getStartupName() }}</p>
                   </div>
 
-                  <div class="col-6 mb-3 pl-0">
-                    <h6>Email</h6>
-                    <p class="text-muted">{{$getRecord->email}}</p>
-                  </div>
 
                   <div class="col-6 mb-3 pl-0">
                     <h6>Gender</h6>

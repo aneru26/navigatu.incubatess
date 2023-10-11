@@ -33,7 +33,7 @@
                 <h3 class="card-title">Admin List </h3>
               </div>
               <!-- /.card-header -->
-              <div class="card-body  table-responsive" style="overflow:auto; ">
+              <div  class="card-body  table-responsive" style="overflow:auto; ">
               <table class="table table-striped" id="myTable">
                   <thead>
                     <tr>
@@ -90,6 +90,6 @@
   </div>
   <!-- /.content-wrapper -->
     
-
-
+  
 @endsection
+

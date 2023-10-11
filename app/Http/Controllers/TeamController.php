@@ -131,9 +131,6 @@ public function show($id)
         }
         $save->team_name =  $request->team_name;
         $save->startup_name =  $request->startup_name;
-        $save->member_1 = $request->member_1;
-        $save->member_2 = $request->member_2;
-        $save->member_3 = $request->member_3;
         $save->save();
 
         if ($request->is('admin/*')) {

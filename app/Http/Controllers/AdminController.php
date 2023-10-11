@@ -28,7 +28,8 @@ class AdminController extends Controller
     public function insert(Request $request)
     {
         request()->validate([
-            'email' => 'required|unique:users'
+            'email' => 'required|unique:users',
+            'password' => 'required|min:8',
         ]);
 
         $user = new User;
@@ -99,7 +100,8 @@ class AdminController extends Controller
     public function update($id, Request $request)
     {
         request()->validate([
-            'email' => 'required|email|unique:users,email,'.$id
+            'email' => 'required|unique:users,email,'.$id,
+            'password' => 'required|min:8'
         ]);
 
         $user = User::getSingle($id);

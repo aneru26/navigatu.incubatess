@@ -21,22 +21,24 @@
             </div>
             <div class="col-md-8">
               <div class="card-body p-4">
-                <h6>Information</h6>
+                <h6>Admin Information</h6>
                 <hr class="mt-0 mb-4">
                 <div class="row pt-1">
-                  <div class="col-12 mb-3 pl-0">
+
+                  <div class="col-12 mb-3">
                     <h6>Email</h6>
                     <p class="text-muted">{{$getRecord->email}}</p>
                   </div>
 
-                  <div class="row pt-1">
+                  
                   <div class="col-12 mb-3">
                     <h6>Designation</h6>
                     <p class="text-muted">{{$getRecord->designation}}</p>
                   </div>
+                
                   
-                  <div class="row pt-1">
-                  <div class="col-12 mb-3 pl-3">
+                  
+                  <div class="col-12 mb-3">
                     <h6>Status</h6>
                     <p class="text-muted">{{  ($getRecord->status == 0) ? 'Active' : 'Inactive' }}</p>
                   </div>

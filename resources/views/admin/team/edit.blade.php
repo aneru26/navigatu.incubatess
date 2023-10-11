@@ -51,27 +51,7 @@
                     <div style="color:red">{{ $errors->first('startup_name') }}</div>
                   </div>
 
-                  
-                  <h3>Member Details</h3>
-
-
-<div class="form-group col-md-">
-  <label >Member 1 <span style="color: red;">*</span></label>
-  <input type="text" class="form-control" value="{{ old ('member_1') }}" name="member_1"  placeholder="Member">
-  <div style="color:red">{{ $errors->first('member_1') }}</div>
-</div>
-
-<div class="form-group col-md-">
-  <label >Member 2 <span style="color: red;">*</span></label>
-  <input type="text" class="form-control" value="{{ old ('member_2') }}" name="member_2"  placeholder="Member">
-  <div style="color:red">{{ $errors->first('member_2') }}</div>
-</div>
-
-<div class="form-group col-md-">
-  <label >Member 3 <span style="color: red;">*</span></label>
-  <input type="text" class="form-control" value="{{ old ('member_3') }}" name="member_3"  placeholder="Member">
-  <div style="color:red">{{ $errors->first('smember_3') }}</div>
-</div>
+                
 
                 </div>
                 <!-- /.card-body -->

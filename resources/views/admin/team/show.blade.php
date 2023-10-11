@@ -40,13 +40,13 @@
 
                   <div class="text-center">
                 
-                <h1><strong>{{ strtoupper($team->team_name) }}</strong></h1>
+                <h3><strong>{{ strtoupper($team->team_name) }}</strong></h3>
                
                   </div>
                 
                   <div class="text-center">
                
-               <h2> {{ strtoupper($team->startup_name ) }}</h2> 
+               <h4> {{ strtoupper($team->startup_name ) }}</h4> 
               
                 <div style="color:red">{{ $errors->first('startup_name') }}</div>
               </div>

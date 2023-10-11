@@ -51,7 +51,7 @@
                   </div>  
                   <div class="form-group">
                     <label>Username</label>
-                    <input type="text" class="form-control" name="email" value="{{ old ('email') }}" required placeholder="Email">
+                    <input type="text" class="form-control" name="email" value="{{ old ('email') }}" required placeholder="Username">
                     <div style="color:red" >{{ $errors->first('email')}}</div>
                   </div>
                   <div class="form-group">
