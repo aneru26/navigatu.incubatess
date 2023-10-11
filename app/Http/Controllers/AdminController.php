@@ -101,7 +101,7 @@ class AdminController extends Controller
     {
         request()->validate([
             'email' => 'required|unique:users,email,'.$id,
-            'password' => 'required|min:8'
+            'password' => 'nullable|min:8'
         ]);
 
         $user = User::getSingle($id);

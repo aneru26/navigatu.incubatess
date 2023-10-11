@@ -94,7 +94,7 @@ class UserController extends Controller
             'email' => 'required|unique:users,email,'.$id,
             'id_number' => 'min:9',
             'team_id' => 'integer',
-            'password' => 'required|min:8'
+            'password' => 'nullable|min:8'
         ]);
 
         $student = User::getSingle($id);

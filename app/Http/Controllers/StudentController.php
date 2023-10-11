@@ -32,8 +32,6 @@ class StudentController extends Controller
     {
         request()->validate([
             'email' => 'required|unique:users',
-            'id_number' => 'min:9',
-            'team_id' => 'integer',
             'password' => 'required|min:8'
         ]);
         
@@ -111,10 +109,8 @@ class StudentController extends Controller
     public function update($id, Request $request)
     {
         request()->validate([
-            'email' => 'required|unique:users',
-            'id_number' => 'min:9',
-            'team_id' => 'integer',
-            'password' => 'required|min:8'
+            'email' => 'required|unique:users,email,' . $id,
+            'password' => 'nullable|min:8'
         ]);
 
         $student = User::getSingle($id);
