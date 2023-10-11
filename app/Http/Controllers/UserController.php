@@ -93,7 +93,6 @@ class UserController extends Controller
         request()->validate([
             'email' => 'required|unique:users,email,'.$id,
             'id_number' => 'min:9',
-            'team_id' => 'integer',
             'password' => 'nullable|min:8'
         ]);
 

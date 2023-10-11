@@ -31,6 +31,15 @@ class TeamMemberController extends Controller
 
     public function insert(Request $request)
 {
+    request()->validate([
+        'fname' => 'required|string|max:255',
+        'lname' => 'required|string|max:255',
+        'id_number' => 'required|min:9|string|max:255',
+        'program' => 'required|string|max:255',
+        'profile_pic' => 'image|mimes:jpeg,png,jpg,gif|max:2048', // Add image validation rules
+    ]);
+
+
     $user = Auth::user();
     $team = TeamModel::find($user->team_id);
     
@@ -98,7 +107,7 @@ public function update(Request $request, $id)
     request()->validate([
         'fname' => 'required|string|max:255',
         'lname' => 'required|string|max:255',
-        'id_number' => 'required|string|max:255',
+        'id_number' => 'required|min:9|string|max:255',
         'program' => 'required|string|max:255',
         'profile_pic' => 'image|mimes:jpeg,png,jpg,gif|max:2048', // Add image validation rules
     ]);
