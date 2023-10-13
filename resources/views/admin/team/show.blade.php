@@ -64,8 +64,10 @@
                       <th >Profile Pic</th>
                       <th>First Name</th>
                       <th>Last Name</th>
+                      <th>Birthday</th>
                       <th>Id Number</th>
                       <th>Program</th>
+                      <th>Year</th>
                       <th >Created Date</th>
                      
                     </tr>
@@ -81,8 +83,10 @@
                     </td>
                     <td>{{ $member->fname }}</td>
                     <td>{{ $member->lname }}</td>
+                    <td>{{ date('F j, Y', strtotime($member->birthday)) }}</td>
                     <td>{{ $member->id_number }}</td>
                     <td>{{ $member->program }}</td>
+                    <td>{{ $member->year }}</td>
                     <td>{{ date('m-d-Y, H:i A', strtotime($member->created_at)) }}</td>
                   
                 </tr>

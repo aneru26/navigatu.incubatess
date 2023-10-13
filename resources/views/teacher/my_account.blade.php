@@ -64,8 +64,8 @@
       
                   </div>
                   <div class="form-group">
-                    <label>Email<span style="color: red;">*</span></label>
-                    <input type="email" class="form-control" name="email" value="{{ old ('email',$getRecord->email) }}" required placeholder="Email">
+                    <label>Username<span style="color: red;">*</span></label>
+                    <input type="text" class="form-control" name="email" value="{{ old ('email',$getRecord->email) }}" required placeholder="Email">
                     <div style="color:red" >{{ $errors->first('email')}}</div>
                   </div>
                  

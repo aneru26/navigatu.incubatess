@@ -23,6 +23,8 @@ return new class extends Migration
             $table->string('id_number')->nullable();
             $table->integer('team_id')->nullable();
             $table->string('program')->nullable();
+            $table->string('year')->nullable();
+            $table->string('birthday')->nullable();
             $table->string('designation')->nullable();
             $table->string('budget')->nullable();
             $table->string('gender')->nullable();

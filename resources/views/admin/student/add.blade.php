@@ -28,6 +28,11 @@
               {{ csrf_field() }}
                 <div class="card-body">
                 <div class="row">
+
+                  <h3 class="py-3">Personal Details</h3>
+                  
+
+                  
                 <div class="form-group col-md-6">
                     <label >First Name <span style="color: red;">*</span></label>
                     <input type="text" class="form-control" required value="{{ old ('name') }}" name="name" required placeholder="First Name">
@@ -40,7 +45,69 @@
                     <div style="color:red">{{ $errors->first('last_name') }}</div>
                   </div>
 
+                 
+                  
                   <div class="form-group col-md-6">
+                    <label >Email </label>
+                    <input type="email" class="form-control" value="{{ old ('budget') }}" name="budget" placeholder="Email address">
+                    <div style="color:red">{{ $errors->first('budget') }}</div>
+                  </div>
+
+                  <div class="form-group col-md-6">
+                    <label >Birthday  </label>
+                    <input type="date" class="form-control" value="{{ old ('birthday') }}" name="birthday"  placeholder="Birthday">
+                    <div style="color:red">{{ $errors->first('birthday') }}</div>
+                  </div>
+
+                  <div class="form-group col-md-6">
+                    <label >Gender  </label>
+                    <select class="form-control"  name="gender" >
+                        <option value="">Select Gender</option>
+                        <option {{ (old('gender') == 'Male') ? 'selected' : ''}} value="Male">Male</option>
+                        <option {{ (old('gender') == 'Female') ? 'selected' : ''}} value="Female">Female</option>
+                        <option {{ (old('gender') == 'Other') ? 'selected' : ''}} value="Other">Other</option>
+                        <div style="color:red">{{ $errors->first('gender') }}</div>
+                    </select>
+                    
+                  </div>
+
+                  <div class="form-group col-md-6">
+                    <label >Status  </label>
+                    <select class="form-control" required name="status" >
+                        <option value="">Select Status</option>
+                        <option {{ old('status') == 0 ? 'selected' : '' }} value="0">Active</option>
+                        <option {{ old('status') == 1 ? 'selected' : '' }} value="1">Inactive</option>
+                        <div style="color:red">{{ $errors->first('status') }}</div>
+                    </select>
+
+                </div>
+
+                  <h3 class="py-3">Team Details</h3>
+                  
+
+                  <div class="form-group col-md-6">
+                    <label >Team <span style="color: red;">*</span> </label>
+                    <select class="form-control"  name="team_id" required >
+                        <option value="">Select Team</option>
+                        @foreach($getClass as $value)
+                        <option {{( old('team_id') == $value->id) ? 'selected' : ''}} value="{{ $value->id }}">{{ $value->team_name }}</option>
+                        @endforeach
+                       
+                        <div style="color:red">{{ $errors->first('team_id') }}</div>
+                    </select>
+                    
+                  </div>
+
+                  <div class="form-group col-md-6">
+                    <label >Mentor  </label>
+                    <input type="text" class="form-control" value="{{ old ('mentor') }}" name="mentor"  placeholder="Mentor">
+                    <div style="color:red">{{ $errors->first('mentor') }}</div>
+                  </div>
+
+
+                  <h3 class="py-3">School Details</h3>
+                  
+                   <div class="form-group col-md-6">
                     <label >Id Number  </label>
                     <input type="text" class="form-control" value="{{ old ('id_number') }}" name="id_number"  placeholder="Id Number">
                     <div style="color:red">{{ $errors->first('id_number') }}</div>
@@ -58,41 +125,15 @@
                   </div>
 
                   <div class="form-group col-md-6">
-                    <label >Team <span style="color: red;">*</span> </label>
-                    <select class="form-control"  name="team_id" required >
-                        <option value="">Select Team</option>
-                        @foreach($getClass as $value)
-                        <option {{( old('team_id') == $value->id) ? 'selected' : ''}} value="{{ $value->id }}">{{ $value->team_name }}</option>
-                        @endforeach
-                       
-                        <div style="color:red">{{ $errors->first('team_id') }}</div>
+                    <label >Year  </label>
+                    <select class="form-control"  name="year" >
+                        <option value="">Select Year</option>
+                        <option value="1">1rst Year</option>
+                        <option value="2">2nd Year</option>
+                        <option value="3">3rd Year</option>
+                        <option value="4">4th Year</option>
                     </select>
-                    
-                  </div>
-
-
-                  <div class="form-group col-md-6">
-                    <label >Email </label>
-                    <input type="email" class="form-control" value="{{ old ('budget') }}" name="budget" placeholder="Budget">
-                    <div style="color:red">{{ $errors->first('budget') }}</div>
-                  </div>
-
-                  <div class="form-group col-md-6">
-                    <label >Gender  </label>
-                    <select class="form-control"  name="gender" >
-                        <option value="">Select Gender</option>
-                        <option {{ (old('gender') == 'Male') ? 'selected' : ''}} value="Male">Male</option>
-                        <option {{ (old('gender') == 'Female') ? 'selected' : ''}} value="Female">Female</option>
-                        <option {{ (old('gender') == 'Other') ? 'selected' : ''}} value="Other">Other</option>
-                        <div style="color:red">{{ $errors->first('gender') }}</div>
-                    </select>
-                    
-                  </div>
-
-                  <div class="form-group col-md-6">
-                    <label >Mentor  </label>
-                    <input type="text" class="form-control" value="{{ old ('mentor') }}" name="mentor"  placeholder="Mentor">
-                    <div style="color:red">{{ $errors->first('mentor') }}</div>
+                    <div style="color:red">{{ $errors->first('year') }}</div>
                   </div>
 
             
@@ -102,21 +143,10 @@
                     <input type="file" class="form-control" name="profile_pic">
                     <div style="color:red">{{ $errors->first('profile_pic') }}</div>
                   </div>
-
-                  <div class="form-group col-md-6">
-                    <label >Status  </label>
-                    <select class="form-control" required name="status" >
-                        <option value="">Select Status</option>
-                        <option {{ old('status') == 0 ? 'selected' : '' }} value="0">Active</option>
-                        <option {{ old('status') == 1 ? 'selected' : '' }} value="1">Inactive</option>
-                        <div style="color:red">{{ $errors->first('status') }}</div>
-                    </select>
-
-                </div>
              
 
                 </div>
-                
+                <h3 class="py-3">User Details</h3>
                   <div class="form-group">
                     <label>Username <span style="color: red;">*</span></label>
                     <input type="text" class="form-control" name="email" required value="{{ old ('email') }}" required placeholder="Username">

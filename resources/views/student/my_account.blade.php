@@ -72,6 +72,25 @@
                     
                   </div>
 
+                  <div class="form-group col-md-6">
+                    <label >Year  </label>
+                    <select class="form-control"  name="year" >
+                        <option value="">Select Year</option>
+                        <option {{ (old('year', $getRecord->year) == '1rst Year') ? 'selected' : ''}}  value="1">1rst Year</option>
+                        <option {{ (old('year', $getRecord->year) == '2nd Year') ? 'selected' : ''}}  value="2">2nd Year</option>
+                        <option {{ (old('year', $getRecord->year) == '3rd Year') ? 'selected' : ''}}  value="3">3rd Year</option>
+                        <option {{ (old('year', $getRecord->year) == '4th Year') ? 'selected' : ''}}  value="4">4th Year</option>
+                    </select>
+                    <div style="color:red">{{ $errors->first('year') }}</div>
+                  </div>
+
+                  <div class="form-group col-md-6">
+                    <label >Birthday  </label>
+                    <input type="date" class="form-control" value="{{ old ('birthday', $getRecord->birthday) }}" name="birthday"  placeholder="Birthday">
+                    <div style="color:red">{{ $errors->first('birthday') }}</div>
+                  </div>
+
+
                 </div>
 
                 <br>

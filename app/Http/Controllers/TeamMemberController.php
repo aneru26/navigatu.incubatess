@@ -68,6 +68,8 @@ class TeamMemberController extends Controller
         }
         $save->id_number = $request->id_number;
         $save->program = $request->program;
+        $save->year = $request->year;
+        $save->birthday = $request->birthday;
         $save->is_delete = 0;
         $save->team_id = $team->id;
         $save->save();

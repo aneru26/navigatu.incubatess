@@ -124,7 +124,8 @@
                 alt="Avatar" class="img-fluid my-5" style="width: 150px;" />
               <h5>{{$getRecord->name}} {{ $getRecord->last_name}}</h5>
               <p>{{$getRecord->id_number}}</p>
-              <p>{{$getRecord->program}}</p>
+              <p>{{$getRecord->program}}-{{$getRecord->year}}</p>
+             
               
             </div>
             <div class="col-md-8">
@@ -152,7 +153,7 @@
                   </div>
 
                   <div class="col-6 mb-3 pl-0">
-                    <h6>Email</h6>
+                    <h6>Username</h6>
                     <p class="text-muted">{{$getRecord->email}}</p>
                   </div>
 
@@ -168,8 +169,13 @@
                   </div>
 
                   <div class="col-6 mb-3 pl-0">
-                    <h6>Budget</h6>
+                    <h6>Email</h6>
                     <p class="text-muted">{{$getRecord->budget}}</p>
+                  </div>
+
+                  <div class="col-6 mb-3 pl-0">
+                    <h6>Birthday</h6>
+                    <p class="text-muted">{{ date('F j, Y', strtotime($getRecord->birthday)) }}</p>
                   </div>
 
                   <div class="col-6 mb-3 pl-0">

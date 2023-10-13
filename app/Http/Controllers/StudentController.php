@@ -40,6 +40,8 @@ class StudentController extends Controller
         $student->last_name = trim($request->last_name);
         $student->id_number = trim($request->id_number);
         $student->program = trim($request->program);
+        $student->year = trim($request->year);
+        $student->birthday = trim($request->birthday);
         $student->team_id = trim($request->team_id);
         $student->budget = trim($request->budget);
         $student->gender = trim($request->gender);
@@ -118,6 +120,8 @@ class StudentController extends Controller
         $student->last_name = trim($request->last_name);
         $student->id_number = trim($request->id_number);
         $student->program = trim($request->program);
+        $student->year = trim($request->year);
+        $student->birthday = trim($request->birthday);
         $student->team_id = trim($request->team_id);
         $student->budget = trim($request->budget);
         $student->gender = trim($request->gender);

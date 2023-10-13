@@ -18,6 +18,8 @@ return new class extends Migration
             $table->string('profile_pic')->nullable();
             $table->string('id_number')->nullable();
             $table->string('program')->nullable();
+            $table->string('year')->nullable();
+            $table->string('birthday')->nullable();
             $table->tinyInteger('is_delete')->default(0)->comment('0:not deleted, 1: deleted');
             $table->unsignedBigInteger('team_id');
             $table->foreign('team_id')

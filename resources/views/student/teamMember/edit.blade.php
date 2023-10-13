@@ -38,6 +38,12 @@
                                     <div style="color:red">{{ $errors->first('lname') }}</div>
                                 </div>
 
+                                <div class="form-group col-md-">
+                                    <label >Birthday <span style="color: red;">*</span></label>
+                                    <input type="date" class="form-control" required value="{{ old('birthday', $teamMember->birthday) }}" name="birthday"  placeholder="Birthday">
+                                    <div style="color:red">{{ $errors->first('birthday') }}</div>
+                                  </div>
+
                                 <div class="form-group">
                                     <label>Profile Pic <span style="color: red;">*</span> </label>
                                     <input type="file" class="form-control" name="profile_pic">
@@ -65,6 +71,18 @@
                         <option {{ (old('program', $teamMember->program) == 'BSCS') ? 'selected' : ''}} value="BSCS">BSCS</option>
                     </select>
                     <div style="color:red">{{ $errors->first('program') }}</div>
+                  </div>
+
+                  <div class="form-group col-md-">
+                    <label >Year  </label>
+                    <select class="form-control"  name="year" >
+                        <option value="">Select Year</option>
+                        <option {{ (old('year', $teamMember->year) == '1') ? 'selected' : ''}} value="1">1rst Year</option>
+                        <option {{ (old('year', $teamMember->year) == '2') ? 'selected' : ''}} value="2">2nd Year</option>
+                        <option {{ (old('year', $teamMember->year) == '3') ? 'selected' : ''}} value="3">3rd Year</option>
+                        <option {{ (old('year', $teamMember->year) == '4') ? 'selected' : ''}} value="4">4th Year</option>
+                    </select>
+                    <div style="color:red">{{ $errors->first('year') }}</div>
                   </div>
                             </div>
                             <!-- /.card-body -->

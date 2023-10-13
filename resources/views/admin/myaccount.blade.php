@@ -30,7 +30,7 @@
                 <h6>Information</h6>
                 <hr class="mt-0 mb-4">
                 <div class="row pt-1">
-                  <div class="col-12 mb-3 pl-0">
+                  <div class="col-12 mb-3 ">
                     <h6>Email</h6>
                     <p class="text-muted">{{$getRecord->email}}</p>
                   </div>

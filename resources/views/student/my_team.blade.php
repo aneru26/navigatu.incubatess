@@ -16,19 +16,15 @@
                 alt="Avatar" class="img-fluid my-5" style="width: 150px;" />
               <h5>{{$getRecord->name}} {{ $getRecord->last_name}}</h5>
               <p>{{$getRecord->id_number}}</p>
-              <p>{{$getRecord->program}}</p>
+              <p>{{$getRecord->program}} - {{$getRecord->year}}</p>
+          
               <a href="{{ url('student/account')}}" class="nav-link @if(Request::segment(2) == 'account') active @endif">
               <i class="nav-icon far fa-user" style="color: white;"></i>
               <p style="color: white;">
                Edit My Account
                 
               </p>
-              <a href="{{ url('student/team/edit') }}">
-                <i class="nav-icon far fa-user" style="color: white;"></i>
-                <p style="color: white;">
-                  Edit My StartUp
-                </p>
-              </a>
+              
             </a>
             </div>
             <div class="col-md-8">
@@ -73,6 +69,11 @@
                   <div class="col-6 mb-3 pl-0">
                     <h6>Email</h6>
                     <p class="text-muted">{{$getRecord->budget}}</p>
+                  </div>
+
+                  <div class="col-6 mb-3 pl-0">
+                    <h6>Birthday</h6>
+                    <p class="text-muted">{{ date('F j, Y', strtotime($getRecord->birthday)) }}</p>
                   </div>
 
                   <div class="col-6 mb-3 pl-0">
