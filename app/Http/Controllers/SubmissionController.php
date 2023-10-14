@@ -109,7 +109,7 @@ public function update($id, Request $request)
     $submission->links =  $request->links;
     if (!empty($request->file('team_documents'))) {
         if (!empty($submission->getProfile)) {
-            foreach ($submission->team_document as $document) {
+            foreach ($submission->team_documents as $document) {
                 unlink('upload/document/' . $document);
             }
         }
@@ -123,9 +123,8 @@ public function update($id, Request $request)
             }
         }
 
-        $submission->team_document = $documentFilenames;
+        $submission->team_documents = $documentFilenames;
     }
-    $submission->status =  $request->status;
     $submission->comment =  $request->comment;
     $submission->save();
 

@@ -107,14 +107,10 @@
 
                   <div class="form-group col-md-6">
                     <label >Program <span style="color: red;">*</span> </label>
-                    <select class="form-control"  name="program" >
-                        <option value="">Select Program</option>
-                        <option {{ (old('program', $getRecord->program) == 'BSIT') ? 'selected' : ''}} value="BSIT">BSIT</option>
-                        <option {{ (old('program', $getRecord->program) == 'BSIS') ? 'selected' : ''}} value="BSIS">BSIS</option>
-                        <option {{ (old('program', $getRecord->program) == 'BSCS') ? 'selected' : ''}} value="BSCS">BSCS</option>
-                    </select>
+                    <input type="text" class="form-control" value="{{ old ('program', $getRecord->program) }}" name="program"  placeholder="((example : BSIT))">
                     <div style="color:red">{{ $errors->first('program') }}</div>
                   </div>
+
 
                   <div class="form-group col-md-6">
                     <label >Year  </label>

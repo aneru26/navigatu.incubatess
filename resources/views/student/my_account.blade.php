@@ -51,12 +51,7 @@
 
                   <div class="form-group col-md-4">
                     <label >Program <span style="color: red;">*</span> </label>
-                    <select class="form-control" required name="program" >
-                        <option value="">Select Program</option>
-                        <option {{ (old('program', $getRecord->program) == 'BSIT') ? 'selected' : ''}} value="BSIT">BSIT</option>
-                        <option {{ (old('program', $getRecord->program) == 'BSIS') ? 'selected' : ''}} value="BSIS">BSIS</option>
-                        <option {{ (old('program', $getRecord->program) == 'BSCS') ? 'selected' : ''}} value="BSCS">BSCS</option>
-                    </select>
+                    <input type="text" class="form-control" value="{{ old ('program', $getRecord->program) }}" name="program" required placeholder="(example:BSIT)">
                     <div style="color:red">{{ $errors->first('program') }}</div>
                   </div>
 
@@ -76,10 +71,10 @@
                     <label >Year  </label>
                     <select class="form-control"  name="year" >
                         <option value="">Select Year</option>
-                        <option {{ (old('year', $getRecord->year) == '1rst Year') ? 'selected' : ''}}  value="1">1rst Year</option>
-                        <option {{ (old('year', $getRecord->year) == '2nd Year') ? 'selected' : ''}}  value="2">2nd Year</option>
-                        <option {{ (old('year', $getRecord->year) == '3rd Year') ? 'selected' : ''}}  value="3">3rd Year</option>
-                        <option {{ (old('year', $getRecord->year) == '4th Year') ? 'selected' : ''}}  value="4">4th Year</option>
+                        <option {{ (old('year', $getRecord->year) == '1') ? 'selected' : ''}}  value="1">1rst Year</option>
+                        <option {{ (old('year', $getRecord->year) == '2') ? 'selected' : ''}}  value="2">2nd Year</option>
+                        <option {{ (old('year', $getRecord->year) == '3') ? 'selected' : ''}}  value="3">3rd Year</option>
+                        <option {{ (old('year', $getRecord->year) == '4') ? 'selected' : ''}}  value="4">4th Year</option>
                     </select>
                     <div style="color:red">{{ $errors->first('year') }}</div>
                   </div>

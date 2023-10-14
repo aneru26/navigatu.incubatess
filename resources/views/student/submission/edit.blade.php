@@ -33,14 +33,14 @@
                     <label >Document Type <span style="color: red;">*</span> </label>
                     <select class="form-control" required name="document_type" >
                         <option value="">Select Document</option>
-                        <option {{ (old('document_type', $getRecord->document_type) == '"Work Plan') ? 'selected' : ''}} value="Work Plan">Work Plan</option>
-                        <option {{ (old('document_type', $getRecord->document_type) == '"Progress Report') ? 'selected' : ''}} value="Progress Report"> Progress Report</option>
-                        <option {{ (old('document_type', $getRecord->document_type) == '"Primer Profile') ? 'selected' : ''}} value="Primer Profile"> Primer Profile</option>
-                        <option {{ (old('document_type', $getRecord->document_type) == '"Pitch Deck') ? 'selected' : ''}} value="Pitch Deck"> Pitch Deck</option>
-                        <option {{ (old('document_type', $getRecord->document_type) == '"Briefer') ? 'selected' : ''}} value="Briefer"> Briefer</option>
-                        <option {{ (old('document_type', $getRecord->document_type) == '"Flyers') ? 'selected' : ''}} value="Flyers"> Flyers</option>
-                        <option {{ (old('document_type', $getRecord->document_type) == '"Promotional Tarp') ? 'selected' : ''}} value="Promotional Tarp"> Promotional Tarp</option>
-                        <option {{ (old('document_type', $getRecord->document_type) == '"Other') ? 'selected' : ''}} value="Other"> Other</option>
+                        <option {{ (old('document_type', $getRecord->document_type) == 'Work Plan') ? 'selected' : '' }} value="Work Plan">Work Plan</option>
+                        <option {{ (old('document_type', $getRecord->document_type) == 'Progress Report') ? 'selected' : ''}} value="Progress Report"> Progress Report</option>
+                        <option {{ (old('document_type', $getRecord->document_type) == 'Primer Profile') ? 'selected' : ''}} value="Primer Profile"> Primer Profile</option>
+                        <option {{ (old('document_type', $getRecord->document_type) == 'Pitch Deck') ? 'selected' : ''}} value="Pitch Deck"> Pitch Deck</option>
+                        <option {{ (old('document_type', $getRecord->document_type) == 'Briefer') ? 'selected' : ''}} value="Briefer"> Briefer</option>
+                        <option {{ (old('document_type', $getRecord->document_type) == 'Flyers') ? 'selected' : ''}} value="Flyers"> Flyers</option>
+                        <option {{ (old('document_type', $getRecord->document_type) == 'Promotional Tarp') ? 'selected' : ''}} value="Promotional Tarp"> Promotional Tarp</option>
+                        <option {{ (old('document_type', $getRecord->document_type) == 'Other') ? 'selected' : ''}} value="Other"> Other</option>
                        
                         
                     </select>
@@ -57,7 +57,7 @@
 
                   <div class="form-group col-md-">
     <label>Team Documents <span style="color: red;">*</span> </label>
-    <input type="file" class="form-control" value="{{ $getRecord->team_documents }}" name="team_documents[]" multiple>
+    <input type="file" class="form-control" value="{{ $getRecord->team_documents }}" name="team_documents[]" required >
     <div style="color:red">{{ $errors->first('team_documents') }}</div>
     
 </div>

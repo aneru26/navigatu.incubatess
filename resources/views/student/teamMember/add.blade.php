@@ -60,17 +60,13 @@
                     <div style="color:red">{{ $errors->first('id_number') }}</div>
                   </div>
 
-                  
                   <div class="form-group col-md-">
-                    <label >Program  </label>
-                    <select class="form-control" required name="program" >
-                        <option value="">Select Program</option>
-                        <option value="BSIT">BSIT</option>
-                        <option value="BSIS">BSIS</option>
-                        <option value="BSCS">BSCS</option>
-                    </select>
+                    <label >Program <span style="color: red;">*</span></label>
+                    <input type="text" class="form-control" required value="{{ old ('program') }}" name="program"  placeholder="(example:BSIT)">
                     <div style="color:red">{{ $errors->first('program') }}</div>
                   </div>
+
+                
 
                   <div class="form-group col-md-">
                   <label >Year  </label>

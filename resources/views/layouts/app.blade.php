@@ -82,11 +82,7 @@
 });
 </script>
 <!-- Apply Stacktable to the table with ID 'myTable' -->
-<script>
-  $(document).ready(function() {
-      $('#myTable').stacktable();
-  });
-</script>
+
 
     @yield('content')
 
