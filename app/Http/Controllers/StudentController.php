@@ -70,7 +70,7 @@ class StudentController extends Controller
 
         $redirectPath = $request->is('admin/*') ? 'admin/student/list' : 'teacher/student/list';
 
-    return redirect($redirectPath)->with('succes', "Student Successfully Added");
+    return redirect($redirectPath)->with('succes', "Incubatess Successfully Added");
 
         
     }
@@ -151,7 +151,7 @@ class StudentController extends Controller
 
         $redirectPath = $request->is('admin/*') ? 'admin/student/list' : 'teacher/student/list';
     
-        return redirect($redirectPath)->with('succes', "Student successfully Updated");
+        return redirect($redirectPath)->with('succes', "Incubatess successfully Updated");
 
        
     }

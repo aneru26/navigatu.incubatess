@@ -114,13 +114,8 @@
                   </div>
 
                   <div class="form-group col-md-6">
-                    <label >Program  </label>
-                    <select class="form-control"  name="program" >
-                        <option value="">Select Program</option>
-                        <option value="BSIT">BSIT</option>
-                        <option value="BSIS">BSIS</option>
-                        <option value="BSCS">BSCS</option>
-                    </select>
+                    <label >Program <span style="color: red;">*</span></label>
+                    <input type="text" class="form-control" required value="{{ old ('program') }}" name="program" required placeholder="(example : BSIT)">
                     <div style="color:red">{{ $errors->first('program') }}</div>
                   </div>
 
