@@ -164,7 +164,7 @@ class StudentController extends Controller
             $getRecord->is_delete = 1;
             $getRecord->save();
 
-            return redirect()->back()->with('succes',"Student successfully Deleted");
+            return redirect()->back()->with('succes',"Incubatess successfully Deleted");
         }
         else
         {
