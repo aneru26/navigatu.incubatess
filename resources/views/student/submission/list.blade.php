@@ -72,7 +72,7 @@
                     </button>
                     <div class="dropdown-menu">
                         <a class="dropdown-item" href="{{ url('student/submission/edit/'.$value->id) }}">Edit</a>
-                        <a class="dropdown-item" href="{{ url('student/submission/delete/'.$value->id) }}">Delete</a>
+                        <a class="dropdown-item" href="{{ url('student/submission/delete/'.$value->id) }}" onclick="deleteSubmission(event, '{{ url('student/submission/delete/'.$value->id) }}')">Delete</a>
                     </div>
                 </div>
             </td>
@@ -95,6 +95,21 @@
         </section> 
   </div>
   <!-- /.content-wrapper -->
+  <script>
+    function deleteSubmission(event, url) {
+      // Prevent the default link action (e.g., navigating to a new page)
+      event.preventDefault();
+    
+      // You can add your logic here to confirm the deletion or perform any other actions
+    
+      // For example, you can display a confirmation dialog:
+      if (confirm('Are you sure you want to delete this submission?')) {
+        // If the user confirms, redirect to the specified URL
+        window.location.href = url;
+      }
+      // If the user cancels, nothing happens (the link action is prevented)
+    }
+    </script>
     
   <script>
     function viewDocument(selectElement) {

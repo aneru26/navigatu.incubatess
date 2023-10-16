@@ -224,7 +224,7 @@ class UserController extends Controller
 
     $redirectPath = $request->is('admin/*') ? 'admin/team/list' : 'student/team/edit';
 
-    return redirect($redirectPath)->with('success', "Team Successfully Updated");
+    return redirect($redirectPath)->with('succes', "Team Successfully Updated");
 }
 
 

@@ -32,7 +32,8 @@ class StudentController extends Controller
     {
         request()->validate([
             'email' => 'required|unique:users',
-            'password' => 'required|min:8'
+            'password' => 'required|min:8',
+            'team_id' => 'nullable|integer',
         ]);
         
         $student = new User;
@@ -42,7 +43,7 @@ class StudentController extends Controller
         $student->program = trim($request->program);
         $student->year = trim($request->year);
         $student->birthday = trim($request->birthday);
-        $student->team_id = trim($request->team_id);
+        $student->team_id = $request->team_id ?? null;
         $student->budget = trim($request->budget);
         $student->gender = trim($request->gender);
         $student->mentor = trim($request->mentor);
@@ -122,7 +123,7 @@ class StudentController extends Controller
         $student->program = trim($request->program);
         $student->year = trim($request->year);
         $student->birthday = trim($request->birthday);
-        $student->team_id = trim($request->team_id);
+        $student->team_id = $request->team_id ?? null;
         $student->budget = trim($request->budget);
         $student->gender = trim($request->gender);
         $student->mentor = trim($request->mentor);

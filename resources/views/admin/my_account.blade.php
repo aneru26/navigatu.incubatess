@@ -34,18 +34,13 @@
 
                   <div class="form-group">
                     <label >Last Name <span style="color: red;">*</span></label>
-                    <input type="text" class="form-control" name="last_name" value="{{ old ('last_name',$getRecord->last_name) }}" required placeholder="Last Name">
+                    <input type="text" class="form-control" name="last_name" value="{{ old ('last_name',$getRecord->last_name) }}"   placeholder="Last Name">
                   </div>
 
+
                   <div class="form-group">
-                    <label >Program <span style="color: red;">*</span> </label>
-                    <select class="form-control" required name="program" >
-                        <option value="">Select Program</option>
-                        <option {{ (old('program', $getRecord->program) == 'BSIT') ? 'selected' : ''}} value="BSIT">BSIT</option>
-                        <option {{ (old('program', $getRecord->program) == 'BSIS') ? 'selected' : ''}} value="BSIS">BSIS</option>
-                        <option {{ (old('program', $getRecord->program) == 'BSCS') ? 'selected' : ''}} value="BSCS">BSCS</option>
-                    </select>
-                    <div style="color:red">{{ $errors->first('program') }}</div>
+                    <label >Department<span style="color: red;">*</span></label>
+                    <input type="text" class="form-control" name="program" value="{{ old ('program',$getRecord->program) }}" required placeholder="Department">
                   </div>
 
                   <div class="form-group">

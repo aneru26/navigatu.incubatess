@@ -35,16 +35,11 @@
                     <label >Last Name</label>
                     <input type="text" class="form-control" value="{{ old ('last_name') }}" name="last_name" required placeholder="Last Name">
                   </div>
+                 
                   <div class="form-group">
-                    <label >Program  </label>
-                    <select class="form-control"  name="program" >
-                        <option value="">Select Program</option>
-                        <option value="BSIT">BSIT</option>
-                        <option value="BSIS">BSIS</option>
-                        <option value="BSCS">BSCS</option>
-                    </select>
-                    <div style="color:red">{{ $errors->first('program') }}</div>
-                  </div>
+                    <label >Department</label>
+                    <input type="text" class="form-control" value="{{ old ('program') }}" name="program" required placeholder="Department">
+                  </div> 
                   <div class="form-group">
                     <label >Designation</label>
                     <input type="text" class="form-control" value="{{ old ('designation') }}" name="designation" required placeholder="Designation">

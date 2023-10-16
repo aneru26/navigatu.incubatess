@@ -23,15 +23,22 @@
                
               @include(' _message')
               
-                <div class="text-center ">
-                @if(!empty($team->getProfilePictureUrl()))
-                                    <img src="{{ $team->getProfilePictureUrl() }}" class="rounded-circle" style="width: 100px; height: 100px;">
-                                    @endif
-                </div>
+              <div class="text-center">
+                @if($team && !empty($team->getProfilePictureUrl()))
+                    <img src="{{ $team->getProfilePictureUrl() }}" class="rounded-circle" style="width: 100px; height: 100px;">
+                @endif
+            </div>
+            
 
-                <h3 class="profile-username text-center">{{ strtoupper($team->team_name) }}</h3>
-
-                <p class="text-muted text-center">{{ strtoupper($team->startup_name) }}</p>
+            <div class="text-center">
+              @if($team)
+                  <h3 class="profile-username text-center">{{ strtoupper($team->team_name) }}</h3>
+                  <p class="text-muted text-center">{{ strtoupper($team->startup_name) }}</p>
+              @else
+                  <p>Team information not found</p>
+              @endif
+          </div>
+          
 
                 <ul class="list-group list-group-unbordered mb-3 ">
                 <div class="card">
