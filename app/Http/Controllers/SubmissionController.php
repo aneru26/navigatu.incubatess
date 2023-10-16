@@ -102,7 +102,9 @@ public function edit($id)
 
 public function update($id, Request $request)
 {
-    
+    request()->validate([
+        'comment' => 'nullable|max:50'
+    ]);
 
     $submission = SubmissionModel::getSingle($id);
     $submission->document_type =  $request->document_type;
@@ -125,6 +127,7 @@ public function update($id, Request $request)
 
         $submission->team_documents = $documentFilenames;
     }
+    $submission->status =  $request->status;
     $submission->comment =  $request->comment;
     $submission->save();
 

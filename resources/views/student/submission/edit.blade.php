@@ -55,6 +55,12 @@
                     <div style="color:red">{{ $errors->first('links') }}</div>
                   </div>
 
+                  <div class="form-group col-md-12">
+                    <label>Comment <span style="color: red;">*</span></label>
+                    <textarea class="form-control" name="comment" placeholder="Comment" readonly>  {{ $getRecord->comment }}</textarea>
+                    <div style="color:red">{{ $errors->first('comment') }}</div>
+                </div>
+
                   <div class="form-group col-md-">
     <label>Team Documents <span style="color: red;">*</span> </label>
     <input type="file" class="form-control" value="{{ $getRecord->team_documents }}" name="team_documents[]" required >

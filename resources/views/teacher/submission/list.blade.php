@@ -51,21 +51,20 @@
                                         <td>{{ $value->links }}</td>
                                         <td>
                                             @if(!empty($value->getProfileDirect1()))
-                                                <select id="documentDropdown" onchange="viewDocument(this)">
-                                                    <option value="">Select Document</option>
-                                                    @foreach($value->getProfileDirect1() as $documentUrl)
-                                                        @php
-                                                            $fileExtension = pathinfo($documentUrl, PATHINFO_EXTENSION);
-                                                        @endphp
-                                                        <option value="{{ $documentUrl }}">{{ strtoupper($fileExtension) }} Document</option>
-                                                    @endforeach
-                                                </select>
+                                                @foreach($value->getProfileDirect1() as $documentUrl)
+                                                    @php
+                                                        $fileExtension = pathinfo($documentUrl, PATHINFO_EXTENSION);
+                                                    @endphp
+                                                    <a href="{{ $documentUrl }}" target="_blank">{{ strtoupper($fileExtension) }} Document</a>
+                                                    <br> <!-- Add line break for better formatting -->
+                                                @endforeach
                                             @endif
                                         </td>
+                                        
                                         <td>{{  ($value->status == 0) ? 'Pending' : 'Approved' }} </td>
                                         <td>{{ $value->created_by_name }} {{ $value->last_name }}</td>
                                         <td>{{ optional($value->team)->team_name }}</td>
-                                        <td>{{ date('m-d-Y H:i A', strtotime($value->created_at)) }}</td>
+                                        <td>{{ date('m-d-Y', strtotime($value->created_at)) }}</td>
                                         <td style="min-width: 140px;">
                                             <div class="btn-group">
                                                 <button type="button"

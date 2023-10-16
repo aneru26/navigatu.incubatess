@@ -31,7 +31,7 @@
 
                 <div class="form-group col-md-12">
                     <label >Document Type <span style="color: red;">*</span></label>
-                    <input type="text" class="form-control" value="{{ $getRecord->document_type }}" name="document_type" required placeholder="Document Type">
+                    <input type="text" class="form-control" value="{{ $getRecord->document_type }}" name="document_type" required placeholder="Document Type" readonly>
                     <div style="color:red">{{ $errors->first('document_type') }}</div>
                   </div>
 
@@ -49,7 +49,7 @@
 
 <div class="form-group col-md-12">
     <label>Comment <span style="color: red;">*</span></label>
-    <textarea class="form-control" name="comment" required placeholder="Comment">{{ $getRecord->comment }}</textarea>
+    <textarea class="form-control" name="comment" placeholder="Comment">{{ $getRecord->comment }}</textarea>
     <div style="color:red">{{ $errors->first('comment') }}</div>
 </div>
 

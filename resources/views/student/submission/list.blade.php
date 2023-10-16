@@ -53,18 +53,15 @@
             <td>{{ $value->document_type }}</td>
             <td>{{ $value->links }}</td>
             <td>
-                @if(!empty($value->getProfileDirect1()))
-                    <select id="documentDropdown" onchange="viewDocument(this)">
-                        <option value="">Select Document</option>
-                        @foreach($value->getProfileDirect1() as $documentUrl)
-                            @php
-                                $fileExtension = pathinfo($documentUrl, PATHINFO_EXTENSION);
-                            @endphp
-                            <option value="{{ $documentUrl }}">{{ strtoupper($fileExtension) }} Document</option>
-                        @endforeach
-                    </select>
-                @endif
-            </td>
+              @if(!empty($value->getProfileDirect1()))
+                  @php
+                      $documentUrl = $value->getProfileDirect1()[0];
+                      $fileExtension = pathinfo($documentUrl, PATHINFO_EXTENSION);
+                  @endphp
+                  <a href="{{ $documentUrl }}" target="_blank">{{ strtoupper($fileExtension) }} Document</a>
+              @endif
+          </td>
+          
             <td>{{  ($value->status == 0) ? 'Pending' : 'Approved' }}
             <td>{{ $value->comment }}</td>
             <td>{{ date('m-d-Y ', strtotime($value->created_at)) }}</td>

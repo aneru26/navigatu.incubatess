@@ -57,7 +57,7 @@
                         <td>{{  $value->name }}</td>
                         <td>{{  $value->last_name }}</td>
                         <td>{{  $value->email }}</td>
-                        <td>{{  date('m-d-Y , H:i A', strtotime($value->created_at)) }}</td>
+                        <td>{{  date('m-d-Y', strtotime($value->created_at)) }}</td>
                         <td style="min-width: 140px;"> 
   <div class="btn-group">
     <button type="button" class="btn btn-primary btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

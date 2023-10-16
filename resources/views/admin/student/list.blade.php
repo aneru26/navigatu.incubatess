@@ -58,7 +58,7 @@
                                         <td>{{  $value->last_name }}</td>
                                         <td>{{  $value->team_name }}</td>
                                         <td>{{  $value->email }}</td>
-                                        <td>{{  date('m-d-Y  H:i A', strtotime($value->created_at)) }}</td>
+                                        <td>{{  date('m-d-Y', strtotime($value->created_at)) }}</td>
                                         <td style="min-width: 140px;">
                                             <div class="btn-group">
                                                 <button type="button"
