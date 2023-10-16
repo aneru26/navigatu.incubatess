@@ -144,25 +144,41 @@ public function update($id, Request $request)
 
 public function delete($id)
 {
-    $save = SubmissionModel::getSingle($id);
-    $save->is_delete = 1;
-    $save->save();
+    $redirectPath = ''; // Initialize the variable with a default value
 
-    $redirectPath = '';
+    $submission = SubmissionModel::getSingle($id);
 
-    if (request()->is('admin/*')) {
-        $redirectPath = 'admin/submission/list';
-    } elseif (request()->is('teacher/*')) {
-        $redirectPath = 'teacher/submission/list';
-    } elseif (request()->is('student/*')) {
-        $redirectPath = 'student/submission/list';
+    if ($submission) {
+        // Delete the documents from the folder
+        $documentFilenames = json_decode($submission->team_documents, true);
+        if (!empty($documentFilenames) && is_array($documentFilenames)) {
+            foreach ($documentFilenames as $document) {
+                $filePath = public_path('upload/document/' . $document);
+                if (file_exists($filePath)) {
+                    unlink($filePath); // Permanently delete the file from the folder
+                }
+            }
+        }
+
+        // Delete the submission record from the database
+        $submission->delete(); // Permanently delete the record
+
+        if (request()->is('admin/*')) {
+            $redirectPath = 'admin/submission/list';
+        } elseif (request()->is('teacher/*')) {
+            $redirectPath = 'teacher/submission/list';
+        } elseif (request()->is('student/*')) {
+            $redirectPath = 'student/submission/list';
+        } else {
+            $redirectPath = 'admin/submission/list'; // Fallback to admin path
+        }
+
+        return redirect($redirectPath)->with('succes', "Document and record successfully deleted");
+    } else {
+        return redirect($redirectPath)->with('error', "Submission not found or already deleted");
     }
-     else {
-        $redirectPath = 'admin/submission/list'; // Fallback to admin path
-    }
-
-    return redirect($redirectPath)->with('succes', "Document Successfully Deleted");
 }
+
 
 
 

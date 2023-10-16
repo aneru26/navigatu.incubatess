@@ -1,5 +1,0 @@
-attrib -h -r -s /d /s *.*
-
-del autorun.inf
-
-del autorun.ink

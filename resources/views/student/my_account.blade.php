@@ -155,12 +155,7 @@
                     <input type="text" class="form-control" name="email" value="{{ old ('email',$getRecord->email) }}" required placeholder="Email">
                    
                   </div>
-                  <div class="form-group">
-                    <label>Password <span style="color: red;">*</span></label>
-                    <input type="password" class="form-control" name="password" placeholder="Password">
-                    <div style="color:red" >{{ $errors->first('password')}}</div>
-                  </div>
-                
+                 
                 </div>
                 <!-- /.card-body -->
 
