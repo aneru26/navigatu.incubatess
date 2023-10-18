@@ -73,7 +73,7 @@ class GrantsController extends Controller
 
         $redirectPath = $request->is('admin/*') ? 'admin/grants/list' : 'teacher/grants/list';
 
-    return redirect($redirectPath)->with('succes', "Competition Successfully Added");
+    return redirect($redirectPath)->with('succes', "Grants Successfully Added");
 
         
     }
@@ -113,7 +113,7 @@ public function update($id, Request $request)
         $redirectPath = 'student/team/add_team';
     }
 
-    return redirect($redirectPath)->with('succes', "Competition Successfully Updated");
+    return redirect($redirectPath)->with('succes', "Grants Successfully Updated");
 }
 
 public function delete($id)

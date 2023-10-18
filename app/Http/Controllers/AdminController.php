@@ -29,7 +29,7 @@ class AdminController extends Controller
     {
         request()->validate([
             'email' => 'required|unique:users',
-            'password' => 'required|min:8',
+            'password' => 'required|min:8'
         ]);
 
         $user = new User;
